@@ -1,3 +1,136 @@
-﻿.title {
+﻿.screen {
+    width: 375px;
+    height: 667px;
+    border: 0.5px solid black;
+    margin: 0px auto;
+}
+
+.header {
+    display: flex;
+    justify-content: initial;
+    margin: 20px;
+}
+
+.logo {
+    padding: 5px;
+    width: 44px;
+    height: 50px;
+    position: relative;
+    right: 3px;
+}
+
+.header-text {
+    margin: 5px;
+}
+
+.header-title {
     color: #A281D8;
+    font-size: 20px;
+    font-weight: 700;
+    bottom: -7px;
+    position: relative;
+    right: 5px;
+}
+
+.slogan {
+    margin: 0;
+    color: #D7C0FC;
+    font-size: 15px;
+    font-weight: 500; 
+    position: relative;
+    right: 5px;
+}
+
+
+.form {
+    text-align: center;
+}
+
+.title {
+    color: #A281D8;
+    font-size: 23px;
+    margin: 5px;
+    padding-top: 20px;
+    font-weight: 700;
+}
+
+.bar {
+    margin: 10px;
+}
+
+.instruction {
+    color: #A5A5A5;
+    margin: 5px;
+    font-size: 15px;
+}
+
+.login-email input, .login-password input {
+    border: none; /* <-- This thing here */
+    width: 240px;
+    height: 25px;
+}
+
+.login-email, .login-password {
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    width: 270px;
+    height: 30px;
+    margin: 20px auto;
+    box-shadow: 5px 5px 5px #DCDCDC;
+}
+
+.login-email input:focus, .login-password input:focus {
+    outline: none;
+}
+
+.forgot-password {
+    font-size: 13px;
+    font-weight: 500;
+    color: #A5A5A5;
+    position: relative;
+    right: -90px;
+    margin: 20px;
+}
+
+.login-button {
+    border: none;
+    background-color: #D7C0FC;
+    color: white;
+    width: 140px;
+    height: 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.no-account {
+    color: #A5A5A5;
+    margin: 20px;
+    font-size: 15px;
+}
+
+.signup-button {
+    border: none;
+    background-color: white;
+    font-weight: 700;
+    font-size: 14px;
+    color: #A5A5A5;
+}
+
+.corner {
+    width: 300px;
+    position: absolute;
+    right: 444px;
+}
+
+.corner-top-img {
+    position: absolute;
+    right: 0px;
+    bottom: -50px;
+}
+
+.corner-img {
+    width: 300px;
+    position: absolute;
+    right: 0px;
 }
