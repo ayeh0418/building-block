@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\components",
     "\\src\\pages"
   ],
-  "SelectedNode": "\\src\\pages\\login.js",
+  "SelectedNode": "\\src\\pages\\Signup.js",
   "PreviewInSolutionExplorer": false
 }
