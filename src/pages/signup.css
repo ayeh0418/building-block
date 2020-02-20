@@ -21,209 +21,213 @@
 body
 {
 }
+
+.signup {
+    height: 667px;
+    width: 375px;
+    position: relative;
+    border: 1px solid black;
+    margin: auto;
+}
 .signup p {
     font-family: Avenir-Book, sans-serif;
-    font-size: 24px;
+    font-size: 13px;
     position: absolute;
-    left: 225px;
-    top: 670px;
+    left: 23%;
+    top: 74%;
     text-align: center;
     color: #A5A5A5;
 }
 .signup button {
     font-family: Avenir-Heavy, sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     color: white;
-    width: 265.71px;
-    height: 55px;
+    width: 35%;
+    height: 30px;
     border-radius: 10px;
     background: #D7C0FC;
     border: none;
     position: absolute;
-    left: 270px;
-    top: 620px;
+    left: 32.5%;
+    top: 69%;
     text-align: center;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
 }
 .signup h1 {
     font-family: Avenir-Black, sans-serif;
-    font-size: 48px;
+    font-size: 24px;
     color: #A281D8;
-    position: absolute;
-    width: 361.56px;
-    height: 75.59px;
-    left: 222.16px;
-    top: 40px;
+    position: relative;
+    margin: auto;
+    top: 90px;
     text-align:center;
 }
 .signup h2 {
     font-family: Avenir-Black, sans-serif;
     position: absolute;
-    width: 555.39px;
-    height: 75.59px;
-    left: 775.31px;
-    top: 310px;
-    font-size: 72px;
+    width: 171px;
+    height: 36px;
+    left: 51px;
+    top: 20px;
+    font-size: 18px;
     text-align: center;
-    color: #B397E1;
+    color: #A281D8;
 }
 .signup h3 {
     font-family: Avenir-Black, sans-serif;
     position: absolute;
-    width: 555.39px;
-    height: 75.59px;
-    left: 775.31px;
-    top: 440px;
-    font-size: 24px;
+    width: 255px;
+    height: 14px;
+    left: 53px;
+    top: 43px;
+    font-size: 13px;
     text-align: center;
-    color: #B397E1;
-    letter-spacing: 0.15em;
+    color: #D7C0FC;
+
 }
 .signup img {
     position: absolute;
-    width: 159px;
-    height: 183px;
-    left: 978px;
-    top: 200px;
+    width: 44px;
+    height: 50px;
+    left: 24px;
+    top: 25px;
     text-align: center;
 }
 
 .signup .intro {
     font-family: Avenir-Book,sans-serif;
-    font-size: 24px;
+    font-size: 14px;
     color: #A5A5A5;
     position: absolute;
-    width: 399.59px;
-    height: 30px;
-    left: 205.55px;
-    top: 130px;
+    top: 120px;
+    left: 85px;
     text-align:center;
 }
 
 .name input {
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 210px;
-    margin: auto;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 25%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
-    font-size: 24px;
+    font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
 }
 .name span {
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 265px;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 31%;
     text-indent: 10px;
     color: red;
+    font-size: 12px;
 }
 
 .email input {
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 295px;
-    margin: auto;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 34%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
-    font-size: 24px;
+    font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
 }
 
 .email span {
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 350px;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 39.2%;
     text-indent: 10px;
     color: red;
+    font-size: 12px;
 }
 
 .confEmail input {
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 375px;
-    margin: auto;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 42%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
-    font-size: 24px;
+    font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
 }
 .confEmail span {
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 430px;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 47.5%;
     text-indent: 10px;
     color: red;
+    font-size: 12px;
 }
 
 .pass input{
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 455px;
-    margin: auto;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 50%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
-    font-size: 24px;
+    font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
 }
 .pass span {
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 510px;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 55.5%;
     text-indent: 10px;
     color: red;
+    font-size: 12px;
 }
 
 .confPass input {
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 535px;
-    margin: auto;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 58.5%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
-    font-size: 24px;
+    font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
 }
 .confPass span {
     position: absolute;
-    width: 524.26px;
-    height: 50px;
-    left: 143.21px;
-    top: 590px;
+    width: 80%;
+    height: 30px;
+    left: 10%;
+    top: 64%;
     text-indent: 10px;
     color: red;
+    font-size: 12px;
 }
 .signup .corner{
     position: absolute;
-    width: 450px;
-    height: 386px;
-    left: 1085px;
-    top: 365px;
+    width: 275px;
+    height: 300px;
+    left: 100px;
+    top: 368px;
 }

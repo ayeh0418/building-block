@@ -10,13 +10,14 @@ export default function Signup() {
 			<h1>Sign Up</h1>
 			<p className="intro">Create an account to get started</p>	
             <NameForm></NameForm>
-            <Link to="/Login"><p>Already have an account? LOG IN</p></Link>
+            
             <div className="logo">
                 <img alt="Flyer" src={logo} />
                 <h2>Building Block</h2>
                 <h3>collaborative blocking reimagined</h3>
                 <img className="corner" src={corner}/>
             </div>
+            <Link to="/Login"><p>Already have an account? LOG IN</p></Link>
 		</div>
 	);
 }
