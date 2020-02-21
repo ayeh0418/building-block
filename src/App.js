@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
+import Home from './pages/Home.js';
 import {  
 	BrowserRouter as Router,
 	Switch,
@@ -18,6 +19,9 @@ export default function App() {
 					</Route>
 					<Route path="/">
 						<Login />
+					</Route>
+					<Route path="/Home">
+						<Home />
 					</Route>
 				</Switch>
 			</div>

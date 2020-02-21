@@ -1,3 +1,43 @@
-﻿body
-{
+﻿.screen-home {
+    text-align: center;
+    width: 375px;
+    height: 667px;
+    border: 0.5px solid black;
+    margin: 0px auto;
+}
+
+.welcome {
+    font-size: 20px;
+    font-weight: 700;
+    color: #A281D8;
+    margin-top: 100px;
+}
+
+.prompt {
+    font-size: 15px;
+    font-weight: 500;
+    color: #D7C0FC;
+    margin: 10px;
+}
+
+.new-project, .load-project, .signout {
+    border: none;
+    width: 200px;
+    height: 30px;
+    margin: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #DCDCDC;
+}
+
+.new-project, .load-project {
+    background-color: #D7C0FC;
+    color: white;
+}
+
+.signout {
+    border: 0.5px solid #A5A5A5;
+    background-color: white;
+    color: #A5A5A5;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire from '../fire';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './Login.css';
 import logo from '../images/logo.png';
 import bar from '../images/bar.png';
@@ -11,7 +11,8 @@ class Login extends Component {
 		super(props);
 		this.state = {
 			email: '', 
-			password: ''
+			password: '',
+			redirect: false
 		};
 
 		this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -28,16 +29,21 @@ class Login extends Component {
 	}
 
 	handleSubmit(event) {
+		var redirect = false;
 		var pw = this.state.password;
 		var ref = fire.database().ref('users/' + this.state.email.replace(/\./g, ','));
 		ref.on("value", function(snapshot) {
 			if (snapshot.val().password == pw) {
-				alert("log in!");
+				alert('login');
+				redirect = true;
 			}
 		}, function (errorObject) {
 			console.log("The read failed: " + errorObject.code);
+			redirect = false;
 		});
 		event.preventDefault();
+		console.log(redirect);
+		this.props.history.push('/Home');
 	}
 
 	render() {
