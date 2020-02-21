@@ -34,19 +34,23 @@ class Login extends Component {
 		var ref = fire.database().ref('users/' + this.state.email.replace(/\./g, ','));
 		ref.on("value", function(snapshot) {
 			if (snapshot.val().password == pw) {
-				alert('login');
 				redirect = true;
 			}
 		}, function (errorObject) {
 			console.log("The read failed: " + errorObject.code);
 			redirect = false;
+			alert('wrong info');
 		});
 		event.preventDefault();
 		console.log(redirect);
-		this.props.history.push('/Home');
+		this.setState({redirect: redirect});
 	}
 
 	render() {
+		if (this.state.redirect) {
+			return <Redirect push to="/Home" />;
+		}
+
 		return (
 			<div className="screen">
 				<div className="header">
