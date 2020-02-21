@@ -19,10 +19,10 @@ class Home extends Component {
 					<button className="new-project">New Project</button>
 				</div>
 				<div>
-					<button className="load-project">Load Project</button>
+					<Link to="/LoadProject"><button className="load-project">Load Project</button></Link>
 				</div>
 				<div>
-					<button className="signout">Sign Out</button>
+					<Link to="/"><button className="signout">Sign Out</button></Link>
 				</div>
 			</div>
 		);

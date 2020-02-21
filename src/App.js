@@ -3,6 +3,7 @@ import './App.css';
 import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
 import Home from './pages/Home.js';
+import LoadProject from './pages/LoadProject.js';
 import {  
 	BrowserRouter as Router,
 	Switch,
@@ -14,14 +15,17 @@ export default function App() {
 		<Router>
 			<div>
 				<Switch>
-					<Route path="/Signup">
+					<Route exact path="/Signup">
 						<Signup />
 					</Route>
 					<Route exact path="/">
 						<Login />
 					</Route>
-					<Route path="/Home">
+					<Route exact path="/Home">
 						<Home />
+					</Route>
+					<Route exact path="/LoadProject">
+						<LoadProject />
 					</Route>
 				</Switch>
 			</div>
