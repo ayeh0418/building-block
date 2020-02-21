@@ -4,6 +4,7 @@ import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
 import Home from './pages/Home.js';
 import LoadProject from './pages/LoadProject.js';
+import NewProject from './pages/NewProject.js';
 import {  
 	BrowserRouter as Router,
 	Switch,
@@ -26,6 +27,9 @@ export default function App() {
 					</Route>
 					<Route exact path="/LoadProject">
 						<LoadProject />
+					</Route>
+					<Route exact path="/NewProject">
+						<NewProject />
 					</Route>
 				</Switch>
 			</div>

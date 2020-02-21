@@ -16,7 +16,7 @@ class Home extends Component {
 				<div className="welcome">Welcom Back</div>
 				<div className="prompt">what would you like to do?</div>
 				<div>
-					<button className="new-project">New Project</button>
+					<Link to="/NewProject"><button className="new-project">New Project</button></Link>
 				</div>
 				<div>
 					<Link to="/LoadProject"><button className="load-project">Load Project</button></Link>
