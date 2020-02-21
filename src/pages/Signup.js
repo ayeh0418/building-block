@@ -18,7 +18,7 @@ export default function Signup() {
                 <h3>collaborative blocking reimagined</h3>
                 <img className="corner" src={corner}/>
             </div>
-            <Link to="/Login"><p>Already have an account? LOG IN</p></Link>
+            <Link to="/"><p>Already have an account? LOG IN</p></Link>
 		</div>
 	);
 }

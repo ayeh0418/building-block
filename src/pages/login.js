@@ -5,7 +5,6 @@ import './Login.css';
 import logo from '../images/logo.png';
 import bar from '../images/bar.png';
 import corner from '../images/corner.png';
-import topCorner from '../images/corner-top.png';
 
 class Login extends Component {
 	constructor(props) {
@@ -45,7 +44,7 @@ class Login extends Component {
 		return (
 			<div className="screen">
 				<div className="header">
-					<img className="logo" alt="Flyer" src={logo} />
+					<img className="logo-login" alt="Flyer" src={logo} />
 					<div className="header-text">
 						<div className="header-title">Building Block</div>
 						<div className="slogan">collaborative blocking redesigned</div>
@@ -69,10 +68,9 @@ class Login extends Component {
 						<div className="forgot-password">Forgot password?</div>
 						<input className="login-button" type="submit" value="Log In" />
 					</form>
-					<div className="no-account">Don't have an account?<Link to="/signup"><button className="signup-button">SIGN UP</button></Link></div>
+					<div className="no-account">Don't have an account?<Link to="/Signup"><button className="signup-button">SIGN UP</button></Link></div>
 				</div>
-				<div className="corner">
-					<img className="corner-top-img" src={topCorner} />
+				<div className="corner-login">
 					<img className="corner-img" src={corner} />
 				</div>
 			</div>
