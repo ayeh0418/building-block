@@ -1,5 +1,6 @@
 import React from 'react';
-import './Signup.css';
+import fire from '../fire';
+import './signup.css';
 import logo from '../images/logo.png';
 import corner from '../images/corner.png';
 import {Link} from 'react-router-dom'
@@ -102,9 +103,14 @@ class NameForm extends React.Component {
  handleSubmit = (event) => {
     event.preventDefault();
     if(validateForm(this.state.errors)) {
-        console.info('Valid Form')
+        console.error('Invalid Form');
     }else{
-        console.error('Invalid Form')
+		console.info('Valid Form');
+        var usersRef = fire.database().ref().child("users");
+		usersRef.child(this.state.email.replace(/\./g, ',')).set({
+			name: this.state.name,
+			password: this.state.password
+		});
     }
 }
 

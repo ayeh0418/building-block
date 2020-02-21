@@ -30,7 +30,7 @@ class Login extends Component {
 
 	handleSubmit(event) {
 		var pw = this.state.password;
-		var ref = fire.database().ref('users/' + this.state.email);
+		var ref = fire.database().ref('users/' + this.state.email.replace(/\./g, ','));
 		ref.on("value", function(snapshot) {
 			if (snapshot.val().password == pw) {
 				alert("log in!");
@@ -38,15 +38,6 @@ class Login extends Component {
 		}, function (errorObject) {
 			console.log("The read failed: " + errorObject.code);
 		});
-		/*
-		var usersRef = fire.database().ref("users");
-		usersRef.on('child_added', snapshot => {
-			/* Update React state when message is added at Firebase Database //
-			let user = { email: snapshot.val(), id: snapshot.key };
-			this.setState({ email: [user].concat(this.state.email) });
-	    })
-		fire.database().ref('users').push( this.inputEl.value );
-		*/
 		event.preventDefault();
 	}
 
@@ -72,7 +63,7 @@ class Login extends Component {
 						</div>
 						<div className="login-password">
 							<label>
-								<input type="text" value={this.state.password} onChange={this.handleChangePassword} placeholder="Password"/>
+								<input type="text" value={this.state.password} onChange={this.handleChangePassword} type="password" placeholder="Password"/>
 							</label>
 						</div>
 						<div className="forgot-password">Forgot password?</div>
