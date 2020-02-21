@@ -13,7 +13,7 @@ export default function App() {
 		<Router>
 			<div>
 				<Switch>
-					<Route path="/signup">
+					<Route path="/Signup">
 						<Signup />
 					</Route>
 					<Route path="/">
