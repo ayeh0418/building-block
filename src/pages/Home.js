@@ -12,8 +12,7 @@ class Home extends Component {
 				<div className="header">
 					<img className="logo-login" alt="Flyer" src={logo} />
 				</div>
-				<Facebook />
-				<div className="welcome">Welcom Back</div>
+				<div className="welcome">Welcome Back</div>
 				<div className="prompt">what would you like to do?</div>
 				<div>
 					<Link to="/NewProject"><button className="new-project">New Project</button></Link>

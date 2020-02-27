@@ -5,6 +5,7 @@ import './Login.css';
 import logo from '../images/logo.png';
 import bar from '../images/bar.png';
 import corner from '../images/corner.png';
+import Facebook from '../components/Facebook.js';
 
 class Login extends Component {
 	constructor(props) {
@@ -29,6 +30,7 @@ class Login extends Component {
 	}
 
 	handleSubmit(event) {
+		console.log(this.state.facebook);
 		var redirect = false;
 		var pw = this.state.password;
 		var ref = fire.database().ref('users/' + this.state.email.replace(/\./g, ','));
@@ -80,6 +82,7 @@ class Login extends Component {
 					</form>
 					<div className="no-account">Don't have an account?<Link to="/Signup"><button className="signup-button">SIGN UP</button></Link></div>
 				</div>
+				<div className="fbButton"><Facebook /></div>
 				<div className="corner-login">
 					<img className="corner-img" src={corner} />
 				</div>

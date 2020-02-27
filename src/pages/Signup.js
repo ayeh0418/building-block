@@ -3,21 +3,22 @@ import fire from '../fire';
 import './signup.css';
 import logo from '../images/logo.png';
 import corner from '../images/corner.png';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
+
 
 export default function Signup() {
 	return (
 		<div className="signup">
 			<h1>Sign Up</h1>
 			<p className="intro">Create an account to get started</p>	
-            <NameForm></NameForm>
-            
+    
             <div className="logo">
                 <img alt="Flyer" src={logo} />
                 <h2>Building Block</h2>
                 <h3>collaborative blocking reimagined</h3>
                 <img className="corner" src={corner}/>
             </div>
+            <NameForm></NameForm>
             <Link to="/"><p>Already have an account? LOG IN</p></Link>
 		</div>
 	);
@@ -49,7 +50,8 @@ class NameForm extends React.Component {
             confirmEmail: '',
             password: '',
             confirmPassword: '',
-        }
+        },
+        valid: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -111,10 +113,14 @@ class NameForm extends React.Component {
 			name: this.state.name,
 			password: this.state.password
 		});
+        this.setState({valid: true});
     }
 }
 
   render() {
+  if(this.state.valid == true){
+      return <Redirect push to="/Home" />;
+  }
   const {errors} = this.state;
   const isEnabled = this.state.name.length > 0 && this.state.email.length > 0 && this.state.confirmEmail.length > 0
                         &&this.state.password.length > 0 && this.state.confirmPassword.length > 0;
