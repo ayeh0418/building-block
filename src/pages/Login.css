@@ -1,4 +1,8 @@
-﻿.screen {
+﻿.fbButton{
+    text-align: center;
+}
+
+.screen {
     width: 375px;
     height: 667px;
     border: 0.5px solid black;
@@ -118,15 +122,14 @@
 }
 
 .corner-login {
-    width: 300px;
-    position: absolute;
-    right: 444px;
+    position: relative;
     z-index: -100;
 }
 
 .corner-img {
     width: 275px;
+    height: 300px;
     position: absolute;
     right: 0px;
-    top: -125px;
+    top: -120px;
 }

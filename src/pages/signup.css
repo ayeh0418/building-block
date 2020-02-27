@@ -230,4 +230,5 @@ body
     height: 300px;
     left: 100px;
     top: 368px;
+    z-index: -1;
 }

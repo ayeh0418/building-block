@@ -46,7 +46,6 @@ export default class Facebook extends Component {
 			alert('wrong info');
 		});
 
-		console.log(fblogin);
 		if(fblogin){
 			this.setState({isLoggedIn: true });
 			console.log(this.state.isLoggedIn);
@@ -59,11 +58,6 @@ export default class Facebook extends Component {
 
 	render () {
 
-
-		/*else if(userExist == false){
-			//return <Redirect push to="/Signup" />;
-		}
-		*/
 		let fbContent;
 
 		if (this.state.isLoggedIn) {
@@ -76,6 +70,7 @@ export default class Facebook extends Component {
 				}}>
 					<img src={this.state.picture} alt={this.state.name} />
 					<h2>{this.state.name}</h2>
+					console.log(this.state.isLoggedIn);
 				</div>
 				
 			)

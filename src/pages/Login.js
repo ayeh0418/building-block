@@ -82,7 +82,7 @@ class Login extends Component {
 					</form>
 					<div className="no-account">Don't have an account?<Link to="/Signup"><button className="signup-button">SIGN UP</button></Link></div>
 				</div>
-				<Facebook />
+				<div className="fbButton"><Facebook /></div>
 				<div className="corner-login">
 					<img className="corner-img" src={corner} />
 				</div>
