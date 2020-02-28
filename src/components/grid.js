@@ -48,7 +48,7 @@ export default class grid extends Component {
 	render() {
 		const dots = this.state.dots.map((data, i) => {
 			return <img onClick={() => this.removeDot(data.id)} src={dotPic} alt="dot" 
-					style={{width: 30, height: 30, position: 'absolute', top: data.y, left: data.x}}/>;
+					style={{width: 30, height: 30, position: 'absolute', top: data.y + 95, left: data.x}}/>;
 		});
 		return (
 			<div onClick={this._onClick} className="board">
