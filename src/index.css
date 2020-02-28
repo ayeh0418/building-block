@@ -1,6 +1,19 @@
+/*
+@media screen and (orientation: landscape) {
+    html {
+        overflow: auto;
+    }
+}
+@media screen and (orientation: portraint) {
+    html {
+        overflow: hidden;
+    }
+} 
+*/
 html {
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 body {
