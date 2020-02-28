@@ -51,11 +51,9 @@ export default class grid extends Component {
 					style={{width: 30, height: 30, position: 'absolute', top: data.y, left: data.x}}/>;
 		});
 		return (
-			<div>
-				<div onClick={this._onClick} className="board">
-					{dots}
-				</div> 
-			</div>
+			<div onClick={this._onClick} className="board">
+				{dots}
+			</div> 
 		);
 	}
 }

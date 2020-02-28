@@ -16,7 +16,7 @@ class NewProject extends Component {
 	render() {
 		return (
 			<div className="screen-home">
-				<div className="header">
+				<div className="header-newProj">
 					<Link to="/Home"><img className="logo-login" alt="Flyer" src={logo} /></Link>
 					<div className="navigation">
 						<div className="navButton">My Projects</div>
@@ -24,12 +24,14 @@ class NewProject extends Component {
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
 				</div>
-				<Grid />					
-				<div className= "Functions">
-					<img className="funcMenu" alt="Formations" src={formations} />
-					<img className="funcMenu" alt="Color" src={dancerColor} />
-					<img className="funcMenu" alt="Transition" src={transitions} />
-					<img className="funcMenu" alt="Dancers" src={dancers} />
+				<Grid />	
+				<div className="bottom">
+					<div className= "Functions">
+						<img className="funcMenu" alt="Formations" src={formations} />
+						<img className="funcMenu" alt="Color" src={dancerColor} />
+						<img className="funcMenu" alt="Transition" src={transitions} />
+						<img className="funcMenu" alt="Dancers" src={dancers} />
+					</div>
 				</div>
 			</div>
 		);
