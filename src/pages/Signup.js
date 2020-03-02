@@ -2,6 +2,7 @@ import React from 'react';
 import fire from '../fire';
 import './signup.css';
 import logo from '../images/logo.png';
+import bar from '../images/bar.png';
 import corner from '../images/corner.png';
 import {Link, Redirect} from 'react-router-dom'
 
@@ -9,17 +10,23 @@ import {Link, Redirect} from 'react-router-dom'
 export default function Signup() {
 	return (
 		<div className="signup">
-			<h1>Sign Up</h1>
-			<p className="intro">Create an account to get started</p>	
-    
-            <div className="logo">
-                <img alt="Flyer" src={logo} />
-                <h2>Building Block</h2>
-                <h3>collaborative blocking reimagined</h3>
-                <img className="corner" src={corner}/>
-            </div>
+			<div className="header">
+				<img className="logo-login" alt="Flyer" src={logo} />
+				<div className="header-text">
+					<div className="header-title">Building Block</div>
+					<div className="slogan">collaborative blocking redesigned</div>
+				</div>
+			</div>
+			<div className="form">
+				<div className="title">Sign Up</div>
+				<img className="bar" src={bar} />
+				<div className="instruction-signup">Create an account to get started</div>
+			</div>
             <NameForm></NameForm>
-            <Link to="/"><p>Already have an account? LOG IN</p></Link>
+            <Link to="/"><p>Already have an account? <b>LOG IN</b></p></Link>
+			<div className="corner-login">
+				<img className="corner" src={corner} />
+			</div>
 		</div>
 	);
 }

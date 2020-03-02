@@ -23,18 +23,11 @@ body
 }
 
 .signup {
-    height: 667px;
-    width: 375px;
-    position: relative;
-    border: 1px solid black;
     margin: auto;
 }
 .signup p {
     font-family: Avenir-Book, sans-serif;
-    font-size: 13px;
-    position: absolute;
-    left: 23%;
-    top: 74%;
+    font-size: 14px;
     text-align: center;
     color: #A5A5A5;
 }
@@ -42,16 +35,15 @@ body
     font-family: Avenir-Heavy, sans-serif;
     font-size: 18px;
     color: white;
-    width: 35%;
+    width: 140px;
     height: 30px;
     border-radius: 10px;
     background: #D7C0FC;
     border: none;
-    position: absolute;
-    left: 32.5%;
-    top: 69%;
     text-align: center;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 .signup h1 {
     font-family: Avenir-Black, sans-serif;
@@ -85,14 +77,6 @@ body
     color: #D7C0FC;
 
 }
-.signup img {
-    position: absolute;
-    width: 44px;
-    height: 50px;
-    left: 24px;
-    top: 25px;
-    text-align: center;
-}
 
 .signup .intro {
     font-family: Avenir-Book,sans-serif;
@@ -104,131 +88,120 @@ body
     text-align:center;
 }
 
+.instruction-signup {
+    color: #A5A5A5;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+}
+
 .name input {
-    position: absolute;
-    width: 80%;
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 25%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
     font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 .name span {
-    position: absolute;
-    width: 80%;
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 31%;
     text-indent: 10px;
     color: red;
     font-size: 12px;
 }
 
 .email input {
-    position: absolute;
-    width: 80%;
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 34%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
     font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 
 .email span {
-    position: absolute;
-    width: 80%;
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 39.2%;
     text-indent: 10px;
     color: red;
     font-size: 12px;
 }
 
 .confEmail input {
-    position: absolute;
-    width: 80%;
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 42%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
     font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 .confEmail span {
-    position: absolute;
-    width: 80%;
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 47.5%;
     text-indent: 10px;
     color: red;
     font-size: 12px;
 }
 
-.pass input{
-    position: absolute;
-    width: 80%;
+.pass input {
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 50%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
     font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 .pass span {
-    position: absolute;
-    width: 80%;
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 55.5%;
     text-indent: 10px;
     color: red;
     font-size: 12px;
 }
 
 .confPass input {
-    position: absolute;
-    width: 80%;
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 58.5%;
     border-radius: 10px;
     border: 1px solid #A5A5A5;
     text-indent: 20px;
     font-size: 14px;
     font-family: Avenir-Book, sans-serif;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 .confPass span {
-    position: absolute;
-    width: 80%;
+    width: 240px;
     height: 30px;
-    left: 10%;
-    top: 64%;
     text-indent: 10px;
     color: red;
     font-size: 12px;
 }
-.signup .corner{
+
+.signup .corner {
     position: absolute;
     width: 275px;
     height: 300px;
-    left: 100px;
-    top: 368px;
+    right: 0px;
+    bottom: 0px;
     z-index: -1;
+}
+
+form {
+    text-align:center;
 }

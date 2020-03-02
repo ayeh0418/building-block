@@ -3,10 +3,8 @@
 }
 
 .screen {
-    width: 375px;
-    height: 667px;
-    border: 0.5px solid black;
-    margin: 0px auto;
+    height: 100%;
+    width: 100%;
 }
 
 .header {
@@ -122,8 +120,7 @@
 }
 
 .corner-login {
-    position: relative;
-    z-index: -100;
+    z-index: -90;
 }
 
 .corner-img {
@@ -131,5 +128,6 @@
     height: 300px;
     position: absolute;
     right: 0px;
-    top: -120px;
+    bottom: 0px;
+    z-index: -100;
 }

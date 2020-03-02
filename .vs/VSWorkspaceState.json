@@ -1,10 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
     "\\src",
     "\\src\\components",
     "\\src\\pages"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\src\\pages\\Login.css",
+=======
+  "SelectedNode": "\\src\\index.css",
+>>>>>>> 4930c95c54b04a88ea00c4b88d1f647060f62449
   "PreviewInSolutionExplorer": false
 }
