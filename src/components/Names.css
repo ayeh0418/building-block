@@ -1,0 +1,52 @@
+#flyoutMenu {
+	width: 35vw;
+	max-width: 40vw;
+	height: 75vh;
+	background-color: #D7C0FC;
+	position: fixed;
+	top: 12.5vh;
+	left: 0;
+	transition: transform .3s cubic-bezier(0, .52, 0, 1);
+	overflow: scroll;
+	z-index: 1000;
+	resize: horizontal;
+}
+
+#flyoutMenu.hide {
+	transform: translate3d(-100vw, 0, 0);
+	transition: transform .3s cubic-bezier(0, -.52, 0, 1);
+}
+
+#flyoutMenu.show {
+	transform: translate3d(0vw, 0, 0);
+	overflow: hidden;
+}
+
+#flyoutMenu .dancerContainer{
+	background-color: white;
+	border-radius: 10px;
+	margin: 10px;
+	height: 60%;
+}
+
+#flyoutMenu h2{
+	color: #A281D8;
+	font-family: Avenir-Black, sans-serif;
+}
+
+#flyoutMenu p {
+	color: #A281D8;
+	font-family: Avenir-Book, sans-serif;
+
+}
+#flyoutMenu button{
+	border: none;
+    width: 85%;
+    height: 30px;
+    margin: 8px;
+	color: #A281D8;
+    border-radius: 10px;
+	background-color: white;
+	font-family: Avenir-Black, sans-serif;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
