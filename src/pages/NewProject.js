@@ -8,10 +8,33 @@ import formations from '../images/formations.png';
 import dancerColor from '../images/color.png';
 import transitions from '../images/transitions.png';
 import dancers from '../images/dancers.png';
+import Names from '../components/Names.js';
 
 
 class NewProject extends Component {
+	constructor(props, context){
+		super(props, context);
 
+		this.state = {
+			dancerMenu: false
+		};
+
+		this.handleDancer = this.handleDancer.bind(this);
+		this.toggleMenu = this.toggleMenu.bind(this);
+	}
+
+	handleDancer(e){
+		this.toggleMenu();
+		console.log("clicked");
+		e.stopPropagation();
+	}
+
+	toggleMenu(){
+		this.setState(
+		{
+			dancerMenu: !this.state.dancerMenu
+		});
+	}
 	
 	render() {
 		return (
@@ -24,15 +47,19 @@ class NewProject extends Component {
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
 				</div>
-				<Grid />	
+				<div className="overlays">
+					<Grid />
+					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu}/>
+				</div>
 				<div className="bottom">
 					<div className= "Functions">
 						<img className="funcMenu" alt="Formations" src={formations} />
 						<img className="funcMenu" alt="Color" src={dancerColor} />
 						<img className="funcMenu" alt="Transition" src={transitions} />
-						<img className="funcMenu" alt="Dancers" src={dancers} />
+						<input type="image" className="funcMenu" alt="Dancers" src={dancers} onMouseDown={this.handleDancer}/>
 					</div>
 				</div>
+				
 			</div>
 		);
 	}

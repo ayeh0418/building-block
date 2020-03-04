@@ -3,8 +3,8 @@
 }
 .board {
     margin: 0 auto;
-    width: 100%;
-    height: 78%;
+    width: 100vw;
+    height: 75vh;
     background-color: white;
     background-size: 25px 25px;
     background-image: linear-gradient(#D7C0FC 1px, transparent 1px), linear-gradient(90deg, #D7C0FC 1px, transparent 1px);
