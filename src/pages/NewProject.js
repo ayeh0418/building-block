@@ -11,6 +11,7 @@ import transitions from '../images/transitions.png';
 import dancers from '../images/dancers.png';
 import Names from '../components/Names.js';
 import AddMenu from '../components/addMenu.js';
+import Instruction from '../components/Instruction.js';
 
 class NewProject extends Component {
 	constructor(props, context){
@@ -63,12 +64,13 @@ class NewProject extends Component {
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
 				</div>
+				<Instruction />
 				<Grid />
 				<div className="overlays">
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} />
-					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu}/>
 				</div>
+				
 				<div className="bottom">
 					<div className= "Functions">
 						<img className="funcMenu" alt="Formations" src={formations} />
