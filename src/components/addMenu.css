@@ -1,0 +1,47 @@
+﻿body {
+}
+#addFlyout {
+	width: 28vw;
+	height: 13vh;
+	background-color: #D7C0FC;
+	position: fixed;
+	top: 40vh;
+	left: 3.5vw;
+	transition: transform .3s cubic-bezier(0, .52, 0, 1);
+	overflow: scroll;
+	z-index: 1000;
+
+}
+
+#addFlyout.hide {
+	transform: translate3d(-100vw, 0, 0);
+	transition: transform .3s cubic-bezier(0, -.52, 0, 1);
+}
+
+#addFlyout.show {
+	transform: translate3d(0vw, 0, 0);
+	overflow: hidden;
+}
+#addFlyout h4 {
+	color: #A281D8;
+	font-family: Avenir-Black, sans-serif;
+	margin: 5px;
+	text-align: center;
+}
+
+#addFlyout .dancerName{
+	width: 25vw;
+	border-radius: 5px;
+	box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
+	border: none;
+	text-indent: 5px;
+}
+#addFlyout .addButton{
+	border-radius: 5px;
+	background: white;
+	border: none;
+	box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
+	color: #A281D8;
+	font-family: Avenir-Black, sans-serif;
+	margin: 6px;
+}
