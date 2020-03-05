@@ -14,8 +14,11 @@ export default class grid extends Component {
 			width: 0,
 			height: 0,
 			rows: 0,
-			columns: 0
+			columns: 0,
+			r: 0,
+			c: 0
 		};
+
 		this.updateWindowDimensions = this.updateWindowDimensions;
 		this.createGrid = this.createGrid.bind(this);
 	}
@@ -31,12 +34,14 @@ export default class grid extends Component {
 
 	createGrid() {
 		let grid = [];
+		let ind = 0;
 
 		for (let i = 0; i < this.state.rows; i++) {
 			let gridRow = [];
 
 			for (let j = 0; j < this.state.columns; j++) {
-				gridRow.push(<Intersection />);
+				ind += 1;
+				gridRow.push(<Intersection x={i} y={j} index={ind} />);
 			}
 			grid.push(<div className="grid-row">{gridRow}</div>);
 		}
