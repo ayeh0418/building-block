@@ -10,17 +10,21 @@ import dancerColor from '../images/color.png';
 import transitions from '../images/transitions.png';
 import dancers from '../images/dancers.png';
 import Names from '../components/Names.js';
+import AddMenu from '../components/addMenu.js';
 
 class NewProject extends Component {
 	constructor(props, context){
 		super(props, context);
 
 		this.state = {
-			dancerMenu: false
+			dancerMenu: false,
+			addMenu: false
 		};
 
 		this.handleDancer = this.handleDancer.bind(this);
 		this.toggleMenu = this.toggleMenu.bind(this);
+		this.addDancer = this.addDancer.bind(this);
+		this.toggleAdd = this.toggleAdd.bind(this);
 	}
 
 	handleDancer(e) {
@@ -36,6 +40,18 @@ class NewProject extends Component {
 		});
 	}
 	
+	addDancer(e){
+		this.toggleAdd();
+		console.log("add");
+		e.stopPropagation();
+	}
+
+	toggleAdd(){
+		this.setState({
+			addMenu: !this.state.addMenu
+		});
+	}
+
 	render() {
 		return (
 			<div className="screen-home">
@@ -49,7 +65,13 @@ class NewProject extends Component {
 				</div>
 				<Grid />
 				<div className="overlays">
+<<<<<<< HEAD
+					<Grid className="grid"/>
+					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
+					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} />
+=======
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu}/>
+>>>>>>> f028658e1547b32005b5dfa96c73102b54a77365
 				</div>
 				<div className="bottom">
 					<div className= "Functions">

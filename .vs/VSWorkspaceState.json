@@ -6,6 +6,10 @@
     "\\src\\components",
     "\\src\\pages"
   ],
+<<<<<<< HEAD
+  "SelectedNode": "\\src\\App.js",
+=======
   "SelectedNode": "\\src\\pages\\Home.js",
+>>>>>>> f028658e1547b32005b5dfa96c73102b54a77365
   "PreviewInSolutionExplorer": false
 }
