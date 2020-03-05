@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
     "\\src",
     "\\src\\components",
     "\\src\\pages"
   ],
-  "SelectedNode": "\\src\\components\\Facebook.js",
+  "SelectedNode": "\\src\\pages\\Home.js",
   "PreviewInSolutionExplorer": false
 }

@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import './NewProject.css';
 import logo from '../images/logo.png';
 import Grid from '../components/grid.js';
+import Intersection from '../components/Intersection.js';
 import formations from '../images/formations.png';
 import dancerColor from '../images/color.png';
 import transitions from '../images/transitions.png';
 import dancers from '../images/dancers.png';
 import Names from '../components/Names.js';
-
 
 class NewProject extends Component {
 	constructor(props, context){
@@ -23,7 +23,7 @@ class NewProject extends Component {
 		this.toggleMenu = this.toggleMenu.bind(this);
 	}
 
-	handleDancer(e){
+	handleDancer(e) {
 		this.toggleMenu();
 		console.log("clicked");
 		e.stopPropagation();
@@ -47,8 +47,8 @@ class NewProject extends Component {
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
 				</div>
+				<Grid />
 				<div className="overlays">
-					<Grid />
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu}/>
 				</div>
 				<div className="bottom">
