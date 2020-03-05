@@ -27,9 +27,10 @@ export default class grid extends Component {
 		this.setState({
 			width: window.innerWidth,
 			height: window.innerHeight,
-			rows: (window.innerHeight - 200) / 24,
+			rows: (window.innerHeight - 205) / 24,
 			columns: (window.innerWidth - 40) / 24
 		});
+		this.createGrid();
 	}
 
 	createGrid() {

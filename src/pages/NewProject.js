@@ -65,7 +65,6 @@ class NewProject extends Component {
 				</div>
 				<Grid />
 				<div className="overlays">
-					<Grid className="grid"/>
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} />
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu}/>
