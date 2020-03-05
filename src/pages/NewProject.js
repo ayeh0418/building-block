@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import './NewProject.css';
 import logo from '../images/logo.png';
 import Grid from '../components/grid.js';
-import Intersection from '../components/Intersection.js';
 import formations from '../images/formations.png';
 import dancerColor from '../images/color.png';
 import transitions from '../images/transitions.png';
 import dancers from '../images/dancers.png';
 import Names from '../components/Names.js';
 import AddMenu from '../components/addMenu.js';
+
 
 class NewProject extends Component {
 	constructor(props, context){
@@ -25,9 +25,10 @@ class NewProject extends Component {
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.addDancer = this.addDancer.bind(this);
 		this.toggleAdd = this.toggleAdd.bind(this);
+		this.addSubmit = this.addSubmit.bind(this;)
 	}
 
-	handleDancer(e) {
+	handleDancer(e){
 		this.toggleMenu();
 		console.log("clicked");
 		e.stopPropagation();
@@ -52,6 +53,10 @@ class NewProject extends Component {
 		});
 	}
 
+	addSubmit(event){
+		var ref = fire.database().ref().child('dancers');
+	}
+
 	render() {
 		return (
 			<div className="screen-home">
@@ -63,15 +68,10 @@ class NewProject extends Component {
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
 				</div>
-				<Grid />
 				<div className="overlays">
-<<<<<<< HEAD
-					<Grid className="grid"/>
+					<Grid />
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
-					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} />
-=======
-					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu}/>
->>>>>>> f028658e1547b32005b5dfa96c73102b54a77365
+					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
 				</div>
 				<div className="bottom">
 					<div className= "Functions">
