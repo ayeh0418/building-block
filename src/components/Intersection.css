@@ -1,0 +1,17 @@
+﻿.intersection {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+}
+
+.black {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 1;
+    top: -26px;
+}

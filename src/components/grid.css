@@ -12,3 +12,6 @@
 img {
     z-index: 100;
 }
+.grid-row {
+    height: 24px;
+}
