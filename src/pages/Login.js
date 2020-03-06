@@ -6,8 +6,10 @@ import logo from '../images/logo.png';
 import bar from '../images/bar.png';
 import corner from '../images/corner.png';
 import Facebook from '../components/Facebook.js';
+import ReactGA from 'react-ga'
 
 class Login extends Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {

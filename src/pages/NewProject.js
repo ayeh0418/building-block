@@ -25,7 +25,7 @@ class NewProject extends Component {
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.addDancer = this.addDancer.bind(this);
 		this.toggleAdd = this.toggleAdd.bind(this);
-		this.addSubmit = this.addSubmit.bind(this;)
+		this.addSubmit = this.addSubmit.bind(this);
 	}
 
 	handleDancer(e){
