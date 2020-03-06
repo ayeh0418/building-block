@@ -36,8 +36,8 @@ initGA(history);
 export default function App() {
 
 //will work but only tracks '/'
- ReactGA.initialize('UA-159907469-1');
- ReactGA.pageview('/');
+ ReactGA.initialize('UA-159925384-1');
+ ReactGA.pageview('/NewProject');
  
  ReactGA.event({
   category: 'User',

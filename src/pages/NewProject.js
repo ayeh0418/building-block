@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './NewProject.css';
 import logo from '../images/logo.png';
 import Grid from '../components/grid.js';
+import Instruction from '../components/Instruction.js';
 import formations from '../images/formations.png';
 import dancerColor from '../images/color.png';
 import transitions from '../images/transitions.png';
@@ -70,8 +71,9 @@ class NewProject extends Component {
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
 				</div>
+				<Instruction />
+				<Grid />
 				<div className="overlays">
-					<Grid />
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
 				</div>
