@@ -59,7 +59,7 @@ class NewProject extends Component {
 				<div className="header-newProj">
 					<Link to="/Home"><img className="logo-login" alt="Flyer" src={logo} /></Link>
 					<div className="navigation">
-						<div className="navButton">My Projects</div>
+						<Link to="/LoadProject"><div className="navButton">My Projects</div></Link>
 						<div className="navButton">Share</div>
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
