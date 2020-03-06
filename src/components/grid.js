@@ -30,6 +30,7 @@ export default class grid extends Component {
 			rows: (window.innerHeight - 200) / 24,
 			columns: (window.innerWidth - 40) / 24
 		});
+		this.createGrid();
 	}
 
 	createGrid() {
@@ -65,7 +66,7 @@ export default class grid extends Component {
 	
 	render() {
 		return (
-			<div>
+			<div className="board">
 				{this.createGrid()}
 			</div>
 		);

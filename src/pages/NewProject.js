@@ -25,7 +25,7 @@ class NewProject extends Component {
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.addDancer = this.addDancer.bind(this);
 		this.toggleAdd = this.toggleAdd.bind(this);
-		this.addSubmit = this.addSubmit.bind(this);
+		//this.addSubmit = this.addSubmit.bind(this);
 	}
 
 	handleDancer(e){
@@ -53,9 +53,11 @@ class NewProject extends Component {
 		});
 	}
 
-	addSubmit(event){
-		var ref = fire.database().ref().child('dancers');
+	/*addSubmit(event, name){
+		var nameRef = fire.database().ref().child('dancers');
+		nameRef.
 	}
+	*/
 
 	render() {
 		return (
