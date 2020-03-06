@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom';
 import './NewProject.css';
 import logo from '../images/logo.png';
 import Grid from '../components/grid.js';
-import Intersection from '../components/Intersection.js';
 import formations from '../images/formations.png';
 import dancerColor from '../images/color.png';
 import transitions from '../images/transitions.png';
 import dancers from '../images/dancers.png';
 import Names from '../components/Names.js';
 import AddMenu from '../components/addMenu.js';
-import Instruction from '../components/Instruction.js';
+
 
 class NewProject extends Component {
 	constructor(props, context){
@@ -26,9 +25,10 @@ class NewProject extends Component {
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.addDancer = this.addDancer.bind(this);
 		this.toggleAdd = this.toggleAdd.bind(this);
+		//this.addSubmit = this.addSubmit.bind(this);
 	}
 
-	handleDancer(e) {
+	handleDancer(e){
 		this.toggleMenu();
 		console.log("clicked");
 		e.stopPropagation();
@@ -53,6 +53,12 @@ class NewProject extends Component {
 		});
 	}
 
+	/*addSubmit(event, name){
+		var nameRef = fire.database().ref().child('dancers');
+		nameRef.
+	}
+	*/
+
 	render() {
 		return (
 			<div className="screen-home">
@@ -64,13 +70,11 @@ class NewProject extends Component {
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
 				</div>
-				<Instruction />
-				<Grid />
 				<div className="overlays">
+					<Grid />
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
-					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} />
+					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
 				</div>
-				
 				<div className="bottom">
 					<div className= "Functions">
 						<img className="funcMenu" alt="Formations" src={formations} />
