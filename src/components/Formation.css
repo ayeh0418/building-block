@@ -1,0 +1,15 @@
+﻿.formation {
+    position: absolute;
+    background-color: #D7C0FC;
+    height: 60%;
+    width: 300px;
+    top: 90px;
+    left: 5%;
+    z-index: 3;
+}
+
+.formation-title {
+    color: #A281D8;
+    font-weight: 700;
+    font-size: 20px;
+}

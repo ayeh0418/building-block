@@ -3,6 +3,8 @@ import './Intersection.css';
 import cross from '../images/intersection.png';
 import fire from '../fire';
 
+
+
 export default class Intersection extends Component {
 	constructor(prop, context) {
 		super(prop, context);
@@ -12,6 +14,14 @@ export default class Intersection extends Component {
 		};
 
 		this.handleDot = this.handleDot.bind(this);	
+		this.show = this.show.bind(this);
+		// this.myRef = React.createRef();
+	}
+
+	show() {
+		this.setState({
+			showDot: true
+		});
 	}
 
 	handleDot() {
@@ -21,7 +31,7 @@ export default class Intersection extends Component {
 
 		
 		if (!this.state.showDot) {
-			var dotRef = fire.database().ref().child("formations");
+			var dotRef = fire.database().ref().child("formations/" + this.props.f);
 			dotRef.child(this.props.index).set({
 				x: this.props.x,
 				y: this.props.y
@@ -33,7 +43,7 @@ export default class Intersection extends Component {
 
 	render() {
 		return (
-			<div className="intersection" id={this.props.x + "-" + this.props.y}>
+			<div /*ref="hi"*/ className="intersection" id={this.props.x + "-" + this.props.y}>
 				<img onClick={this.handleDot} src={cross}/>
 				<div onClick={this.handleDot} className="black" style={{visibility: this.state.showDot ? 'visible' : 'hidden' }}></div>
 			</div>

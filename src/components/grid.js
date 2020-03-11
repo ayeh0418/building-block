@@ -5,6 +5,7 @@ import Intersection from './Intersection.js';
 
 var idx = 0;
 var onDot = false;
+var formation = 1;
 
 export default class grid extends Component {  
 	constructor(props) {
@@ -42,7 +43,7 @@ export default class grid extends Component {
 
 			for (let j = 0; j < this.state.columns; j++) {
 				ind += 1;
-				gridRow.push(<Intersection x={i} y={j} index={ind} />);
+				gridRow.push(<Intersection f={formation} x={i} y={j} index={ind} id={ind} />);
 			}
 			grid.push(<div className="grid-row">{gridRow}</div>);
 		}

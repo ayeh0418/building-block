@@ -39,6 +39,8 @@ class Login extends Component {
 		ref.on("value", function(snapshot) {
 			if (snapshot.val().password == pw) {
 				redirect = true;
+			} else {
+				alert("incorrect information");
 			}
 		}, function (errorObject) {
 			console.log("The read failed: " + errorObject.code);

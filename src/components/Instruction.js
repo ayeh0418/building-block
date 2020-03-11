@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 import "./Instruction.css";
 import fire from '../fire';
+import ReactGA from "react-ga";
+
+export const PageView = () => {  
+    ReactGA.pageview(window.location.pathname +  
+                     window.location.search); 
+}
+
+export const Event = (category, action) => {
+  ReactGA.event({
+    category: category,
+    action: action
+  });
+};
 
 var clickCount = 0;
 
@@ -17,6 +30,11 @@ export default class Instruction extends Component {
 		this.addClick = this.addClick.bind(this);
 	}
 
+	componentDidMount() {
+		ReactGA.initialize('UA-159925384-1');
+		PageView();
+	}
+
 	addClick() {
 		var dotRef = fire.database().ref('clicks/');
 		var ref = fire.database().ref('clicks/');
@@ -29,7 +47,8 @@ export default class Instruction extends Component {
 			clicks: clickCount + 1
 		});
 
-		alert("Click on the grid to add/remove dots. Click 'Dancers' to manage dancers. Click 'Formations' to manage formations")
+		alert("Click on the grid to add/remove dots. Click 'Dancers' to manage dancers. Click 'Formations' to manage formations");
+		Event("Instruction", "Check instruction");
 	}
 
 	render() {

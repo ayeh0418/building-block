@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './NewProject.css';
 import logo from '../images/logo.png';
 import Grid from '../components/grid.js';
+import Formation from '../components/Formation.js';
 import Instruction from '../components/Instruction.js';
 import formations from '../images/formations.png';
 import dancerColor from '../images/color.png';
@@ -12,20 +13,21 @@ import dancers from '../images/dancers.png';
 import Names from '../components/Names.js';
 import AddMenu from '../components/addMenu.js';
 
-
 class NewProject extends Component {
 	constructor(props, context){
 		super(props, context);
 
 		this.state = {
 			dancerMenu: false,
-			addMenu: false
+			addMenu: false,
+			showFormation: false
 		};
 
 		this.handleDancer = this.handleDancer.bind(this);
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.addDancer = this.addDancer.bind(this);
 		this.toggleAdd = this.toggleAdd.bind(this);
+		this.handleFormation = this.handleFormation.bind(this);
 		//this.addSubmit = this.addSubmit.bind(this);
 	}
 
@@ -54,6 +56,11 @@ class NewProject extends Component {
 		});
 	}
 
+	handleFormation() {
+		this.setState(prevState => ({
+			showFormation: !prevState.showFormation
+		}));
+	}
 	/*addSubmit(event, name){
 		var nameRef = fire.database().ref().child('dancers');
 		nameRef.
@@ -77,9 +84,10 @@ class NewProject extends Component {
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
 				</div>
+				{ this.state.showFormation ? <Formation /> : null }
 				<div className="bottom">
 					<div className= "Functions">
-						<img className="funcMenu" alt="Formations" src={formations} />
+						<img onClick={this.handleFormation} className="funcMenu" alt="Formations" src={formations} />
 						<img className="funcMenu" alt="Color" src={dancerColor} />
 						<img className="funcMenu" alt="Transition" src={transitions} />
 						<input type="image" className="funcMenu" alt="Dancers" src={dancers} onMouseDown={this.handleDancer}/>
