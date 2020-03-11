@@ -37,7 +37,7 @@ export default class addMenu extends Component {
         this.setState({id: this.state.id + 1});
         console.log(this.state.id +" " + this.state.name);
         this.props.addSubmit(event, this.state.name, this.state.id);
-        this.setState({name: ""});
+        this.setState({name: " "});
         //event.preventDefault();
 	}
 	render() {
@@ -56,7 +56,7 @@ export default class addMenu extends Component {
         <h4>New Dancer</h4>
         <form onSubmit={this.handleSubmit}>
             <input className="dancerName" id="dancerName" type="text" value={this.state.name} onChange={this.handleAddName} /><br/>
-            <input className="addButton" type="submit" value="Add" onMouseDown={this.props.handleMouseDown}/>
+            <input className="addButton" type="submit" value="Add" onClick={this.props.handleMouseDown} />
         </form>
       </div>
     );

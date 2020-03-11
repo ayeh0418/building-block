@@ -54,7 +54,7 @@ constructor(props) {
         <div className="dancerContainer">
             {this.state.dancerList.map((dancer, index) => (
         <div className="dancerOption">
-        <p id="delete" onMouseDown={() => window.location.reload()}  onClick={() => fire.database().ref("dancers/" + dancer.name).remove()} >x</p>
+        <p id="delete" onClick={() => window.location.reload()}  onMouseDown={() => fire.database().ref("dancers/" + dancer.name).remove()}>x</p>
         <p id="name" key={index}>{dancer.name}</p>
         </div>
         ))}
