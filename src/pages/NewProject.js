@@ -28,7 +28,7 @@ class NewProject extends Component {
 		this.addDancer = this.addDancer.bind(this);
 		this.toggleAdd = this.toggleAdd.bind(this);
 		this.handleFormation = this.handleFormation.bind(this);
-		//this.addSubmit = this.addSubmit.bind(this);
+		this.addSubmit = this.addSubmit.bind(this);
 	}
 
 	handleDancer(e){
@@ -61,11 +61,14 @@ class NewProject extends Component {
 			showFormation: !prevState.showFormation
 		}));
 	}
-	/*addSubmit(event, name){
+	addSubmit(event, name){
 		var nameRef = fire.database().ref().child('dancers');
-		nameRef.
+		nameRef.child(name).set({
+			id: id,
+			name: name
+		});
 	}
-	*/
+	
 
 	render() {
 		return (

@@ -50,3 +50,14 @@
 	font-family: Avenir-Black, sans-serif;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
+
+#flyoutMenu .dancerOption{
+	display: flex;
+}
+#flyoutMenu #delete{
+	width:5%;
+	margin-left: 10px;
+}
+#flyoutMenu #name{
+	width:95%;
+}
