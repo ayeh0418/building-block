@@ -1,0 +1,39 @@
+﻿.formation {
+    position: absolute;
+    background-color: #D7C0FC;
+    height: 60%;
+    width: 300px;
+    top: 90px;
+    left: 5%;
+    z-index: 3;
+}
+
+.formation-title {
+    color: #A281D8;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.formation-add {
+    border: none;
+    background-color: white;
+    color: #A281D8;
+    width: 140px;
+    height: 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.formation-button {
+    border: none;
+    background-color: #A281D8;
+    color: white;
+    width: 140px;
+    height: 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 5px;
+}

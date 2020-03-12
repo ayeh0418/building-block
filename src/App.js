@@ -7,7 +7,6 @@ import LoadProject from './pages/LoadProject.js';
 import NewProject from './pages/NewProject.js';
 import {  
 	BrowserRouter as Router,
-	//Router,
 	Switch,
 	Route
 } from 'react-router-dom';
@@ -73,7 +72,7 @@ export default class App extends Component {
 
 	render(){
 	return (
-		<Router /*history={history} */>
+		<Router>
 			<div>
 				<Switch>
 					<Route exact path="/Signup">
