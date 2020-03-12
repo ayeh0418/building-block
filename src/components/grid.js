@@ -37,13 +37,12 @@ export default class grid extends Component {
 	createGrid() {
 		let grid = [];
 		let ind = 0;
-
 		for (let i = 0; i < this.state.rows; i++) {
 			let gridRow = [];
 
 			for (let j = 0; j < this.state.columns; j++) {
 				ind += 1;
-				gridRow.push(<Intersection f={formation} x={i} y={j} index={ind} id={ind} />);
+				gridRow.push(<Intersection f={this.props.currForm} x={i} y={j} index={ind} id={ind} />);
 			}
 			grid.push(<div className="grid-row">{gridRow}</div>);
 		}

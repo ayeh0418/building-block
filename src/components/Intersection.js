@@ -13,7 +13,8 @@ export default class Intersection extends Component {
 			showDot: false
 		};
 
-		this.handleDot = this.handleDot.bind(this);	
+		this.addDot = this.addDot.bind(this);	
+		this.removeDot = this.removeDot.bind(this);	
 		this.show = this.show.bind(this);
 		// this.myRef = React.createRef();
 	}
@@ -24,28 +25,35 @@ export default class Intersection extends Component {
 		});
 	}
 
-	handleDot() {
-		this.setState(prevState => ({
-			showDot: !prevState.showDot
-		}));
+	addDot() {
+		this.setState ({
+			showDot: true
+		});
+		var dotRef = fire.database().ref().child("formations/" + this.props.f);
+		dotRef.child(this.props.index).set({
+			x: this.props.x,
+			y: this.props.y
+		});
+	}
 
-		
-		if (!this.state.showDot) {
-			var dotRef = fire.database().ref().child("formations/" + this.props.f);
-			dotRef.child(this.props.index).set({
-				x: this.props.x,
-				y: this.props.y
+	removeDot() {
+		if (this.state.showDot) {
+			this.setState ({
+				showDot: false
 			});
 		} else {
-			fire.database().ref("formations/" + this.props.index).remove();
+			this.setState ({
+				showDot: true
+			});
 		}
+		fire.database().ref("formations/" + this.props.f + "/" + this.props.index).remove();
 	}
 
 	render() {
 		return (
 			<div /*ref="hi"*/ className="intersection" id={this.props.x + "-" + this.props.y}>
-				<img onClick={this.handleDot} src={cross}/>
-				<div onClick={this.handleDot} className="black" style={{visibility: this.state.showDot ? 'visible' : 'hidden' }}></div>
+				<img onClick={this.addDot} src={cross}/>
+				<div onClick={this.removeDot} className="black" style={{visibility: this.state.showDot ? 'visible' : 'hidden' }}></div>
 			</div>
 		);
 	}

@@ -3,55 +3,64 @@ import ReactDOM from 'react-dom';
 import './Formation.css';
 import fire from '../fire';
 
-export default class Formation extends Component {
-	construct(props, context) {
-		//super(props, context);
+class Formation extends Component {
+	constructor(props, context) {
+		super(props, context);
 		this.state = {
-			showBox: false
+			showBox: this.props.showBox,
+			formations: []
 		}
 
 		this.display = this.display.bind(this);
-		this.close = this.close.bind(this);
+		this.addFormation = this.addFormation.bind(this);
 	}
-	/*
-	close () {
-		
-		this.setState({
-			showBox: false
-		});
-		
-		var menu = document.getElementById('formation');
-		menu.visibility = 'hidden';
-	}
-	*/
-	display() {
-		var ref = fire.database().ref('formations').orderByKey();
 
+	display(e) {
+		var id = e.target.id;
+		this.props.curr(id);
+
+		var allDots = document.getElementsByClassName('black');
+
+		for (var i = 0; i < allDots.length; i ++) {
+			allDots[i].style.visibility = 'hidden';
+		}
+
+		var ref = fire.database().ref('formations').orderByKey();
 		ref.once('value').then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
-				childSnapshot.forEach(function(gcs) {
-					// alert(gcs.key);
-					// alert(gcs.val().x);
-					// alert(gcs.val().y);
-
-					var dot = document.getElementById(gcs.val().x + "-" + gcs.val().y);
-					dot.style.display = "none";
-					// var dot = ReactDOM.findDOMNode(this.refs.hi);
-					// alert(dot);
-					// dot.show();
-				});
+				if (childSnapshot.key == id) {
+					childSnapshot.forEach(function(gcs) {
+						var dot = document.getElementById(gcs.val().x + "-" + gcs.val().y).children[1];
+						dot.style.visibility = "visible";
+					});
+				}
 				
 			});
 			
 		});
 	}
 
+	addFormation() {
+		var count = this.props.count;
+		this.props.counting(count + 1);
+		this.setState(previousState => ({
+			formations: [
+				...previousState.formations,
+				(<div><button id={count} className="formation-button" onClick={this.display}>{"Formation" + count}</button></div>)
+			]
+		}));
+	}
+
 	render() {
 		return (
-			<div id="formation" className="formation" /*style={{visibility: this.state.showBox ? 'visible' : 'hidden' }}*/>
+			<div id="formation" className="formation" style={{visibility: this.props.showBox ? 'visible' : 'hidden' }}>
 				<p className="formation-title">Formation</p>
-				<button onClick={this.display}>Formation1</button>
+				{this.state.formations.map(formation => formation)}
+				<div>
+					<button onClick={this.addFormation} className="formation-add">Add Formation</button>
+				</div>
 			</div>
 		);
 	}
 }
+export default Formation;
