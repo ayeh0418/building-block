@@ -28,7 +28,7 @@ class NewProject extends Component {
 		this.addDancer = this.addDancer.bind(this);
 		this.toggleAdd = this.toggleAdd.bind(this);
 		this.handleFormation = this.handleFormation.bind(this);
-		this.addSubmit = this.addSubmit.bind(this);
+		//this.addSubmit = this.addSubmit.bind(this);
 	}
 
 	handleDancer(e){
@@ -61,7 +61,7 @@ class NewProject extends Component {
 			showFormation: !prevState.showFormation
 		}));
 	}
-	addSubmit(event, name){
+	/*addSubmit(event, name){
 		var nameRef = fire.database().ref().child('dancers');
 		nameRef.child(name).set({
 			id: id,
@@ -74,9 +74,9 @@ class NewProject extends Component {
 		return (
 			<div className="screen-home">
 				<div className="header-newProj">
-					<Link to={"/" + localStorage.getItem("userState")+"/Home"}><img className="logo-login" alt="Flyer" src={logo} /></Link>
+					<Link to="/Home"><img className="logo-login" alt="Flyer" src={logo} /></Link>
 					<div className="navigation">
-						<Link to={"/" + localStorage.getItem("userState")+ "/LoadProject"}><div className="navButton">My Projects</div></Link>
+						<Link to="/LoadProject"><div className="navButton">My Projects</div></Link>
 						<div className="navButton">Share</div>
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
