@@ -5,30 +5,33 @@ import logo from '../images/logo.png';
 import bar from '../images/bar.png';
 import corner from '../images/corner.png';
 import {Link, Redirect} from 'react-router-dom'
+import { Component } from 'react';
 
 
-export default function Signup() {
-	return (
-		<div className="signup">
-			<div className="header">
-				<img className="logo-login" alt="Flyer" src={logo} />
-				<div className="header-text">
-					<div className="header-title">Building Block</div>
-					<div className="slogan">collaborative blocking redesigned</div>
-				</div>
-			</div>
-			<div className="form">
-				<div className="title">Sign Up</div>
-				<img className="bar" src={bar} />
-				<div className="instruction-signup">Create an account to get started</div>
-			</div>
-            <NameForm></NameForm>
-            <Link to="/"><p>Already have an account? <b>LOG IN</b></p></Link>
-			<div className="corner-login">
-				<img className="corner" src={corner} />
-			</div>
-		</div>
-	);
+export default class Signup extends Component {
+    render(){
+	    return (
+		    <div className="signup">
+			    <div className="header">
+				    <img className="logo-login" alt="Flyer" src={logo} />
+				    <div className="header-text">
+				    	<div className="header-title">Building Block</div>
+				    	<div className="slogan">collaborative blocking redesigned</div>
+				    </div>
+			    </div>
+			    <div className="form">
+				    <div className="title">Sign Up</div>
+				    <img className="bar" src={bar} />
+				    <div className="instruction-signup">Create an account to get started</div>
+			    </div>
+                <NameForm setUser={this.props.setUser} ></NameForm>
+                <Link to="/"><p>Already have an account? <b>LOG IN</b></p></Link>
+			    <div className="corner-login">
+				    <img className="corner" src={corner} />
+			    </div>
+		    </div>
+	    );
+    }
 }
 const validEmailRegex = 
   RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/);
@@ -58,7 +61,8 @@ class NameForm extends React.Component {
             password: '',
             confirmPassword: '',
         },
-        valid: false
+        valid: false,
+        username: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -120,13 +124,17 @@ class NameForm extends React.Component {
 			name: this.state.name,
 			password: this.state.password
 		});
-        this.setState({valid: true});
+        var name  = this.state.email.substring(0, this.state.email.lastIndexOf("@"));
+        this.setState({valid: true, username: name}, () => {this.props.setUser(name)});
+        localStorage.setItem('userState', name);
     }
 }
 
   render() {
   if(this.state.valid == true){
-      return <Redirect push to="/Home" />;
+ 
+      return <Redirect push to={"/" + localStorage.getItem("userState") + "/Home"}/>;
+      
   }
   const {errors} = this.state;
   const isEnabled = this.state.name.length > 0 && this.state.email.length > 0 && this.state.confirmEmail.length > 0

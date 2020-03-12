@@ -9,11 +9,11 @@ class LoadProject extends Component {
 		return (
 			<div className="screen-home">
 				<div className="header">
-					<Link to="/Home"><img className="logo-login" alt="Flyer" src={logo} /></Link>
+					<Link to={"/" + localStorage.getItem("userState")+"/Home"}><img className="logo-login" alt="Flyer" src={logo} /></Link>
 				</div>
 				<div className="welcome">My Projects</div>
 				<div>
-					<Link to="/NewProject"><button className="new-project">New Project</button></Link>
+					<Link to={"/" + localStorage.getItem("userState")+ "/NewProject"}><button className="new-project">New Project</button></Link>
 				</div>
 			</div>
 		);

@@ -67,9 +67,9 @@ class NewProject extends Component {
 		return (
 			<div className="screen-home">
 				<div className="header-newProj">
-					<Link to="/Home"><img className="logo-login" alt="Flyer" src={logo} /></Link>
+					<Link to={"/" + localStorage.getItem("userState")+"/Home"}><img className="logo-login" alt="Flyer" src={logo} /></Link>
 					<div className="navigation">
-						<Link to="/LoadProject"><div className="navButton">My Projects</div></Link>
+						<Link to={"/" + localStorage.getItem("userState")+ "/LoadProject"}><div className="navButton">My Projects</div></Link>
 						<div className="navButton">Share</div>
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	

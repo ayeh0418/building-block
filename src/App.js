@@ -13,6 +13,7 @@ import {
 } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import {createBrowserHistory} from 'history';
+import { Component } from 'react';
 
 /* cant get it to work yet
  const history = createBrowserHistory();
@@ -33,37 +34,66 @@ import {createBrowserHistory} from 'history';
 initGA(history);
 */
 
-export default function App() {
 
+export default class App extends Component {
+
+ constructor(props) {
+		super(props);
+		this.state = {
+			username: ''
+		};
+		this.setUser = this.setUser.bind(this);
+	}
 //will work but only tracks '/'
- ReactGA.initialize('UA-159925384-1');
- ReactGA.pageview('/NewProject');
+ //ReactGA.initialize('UA-159925384-1');
+ //ReactGA.pageview('/NewProject');
  
- ReactGA.event({
+ /*ReactGA.event({
   category: 'User',
   action: 'Created account'
 });
+*/
+
+	componentDidMount () {
+    const persistState = localStorage.getItem('userState');
+    console.log(persistState);
+    if (persistState) {
+      try {
+        this.setState({ username: persistState});
+      } catch (e) {
+        // is not json
+      }
+    }
+  }
+
+	setUser = (name) => {
+		this.setState({username: name}, () => {localStorage.setItem('userState', this.state.username)});
+
+	}
+
+	render(){
 	return (
 		<Router /*history={history} */>
 			<div>
 				<Switch>
-					<Route exact path="/Signup" >
-						<Signup />
+					<Route exact path="/Signup">
+						<Signup setUser={this.setUser}/>
 					</Route>
-					<Route exact path="/">					 
-						<Login />
+					<Route exact path="/"  >					 
+						<Login setUser={this.setUser} />
 					</Route>
-					<Route exact path="/Home">
+					<Route exact path={"/" + this.state.username + "/Home"}>
 						<Home />
 					</Route>
-					<Route exact path="/LoadProject">
+					<Route exact path={"/" + this.state.username + "/LoadProject"}>
 						<LoadProject />
 					</Route>
-					<Route exact path="/NewProject">
+					<Route exact path={"/" + this.state.username + "/NewProject"}>
 						<NewProject />
 					</Route>
 				</Switch>
 			</div>
 		</Router>
 	);
+	}
 }

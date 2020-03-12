@@ -15,12 +15,15 @@ class Login extends Component {
 		this.state = {
 			email: '', 
 			password: '',
-			redirect: false
+			redirect: false,
+			username: '',
+			submitted: false
 		};
 
 		this.handleChangeEmail = this.handleChangeEmail.bind(this);
 		this.handleChangePassword = this.handleChangePassword.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleValidCheck = this.handleValidCheck.bind(this);
 	}
 
 	handleChangeEmail(event) {
@@ -32,13 +35,27 @@ class Login extends Component {
 	}
 
 	handleSubmit(event) {
+
 		console.log(this.state.facebook);
 		var redirect = false;
 		var pw = this.state.password;
 		var ref = fire.database().ref('users/' + this.state.email.replace(/\./g, ','));
+		var name   = this.state.email.substring(0, this.state.email.lastIndexOf("@"));
+		var that = this;
 		ref.on("value", function(snapshot) {
-			if (snapshot.val().password == pw) {
-				redirect = true;
+			if(snapshot.exists()){
+				if (snapshot.val().password == pw) {
+					redirect = true;	
+					that.setState({redirect: redirect}, () => {that.handleValidCheck()});
+				}
+				else{
+					redirect = false;	
+					that.setState({redirect: redirect}, () => {that.handleValidCheck()});
+				}
+			}
+			else{
+				redirect = false;	
+				that.setState({redirect: redirect}, () => {that.handleValidCheck()});
 			}
 		}, function (errorObject) {
 			console.log("The read failed: " + errorObject.code);
@@ -46,13 +63,20 @@ class Login extends Component {
 			alert('wrong info');
 		});
 		event.preventDefault();
-		console.log(redirect);
-		this.setState({redirect: redirect});
+		this.setState({redirect: redirect, username: name}, () => {this.props.setUser(name)} );
+		console.log(this.state.username);
+	}
+	handleValidCheck(){
+		if(!this.state.redirect && this.state.submitted){
+			alert("Invalid Username or Password");
+			this.setState({submitted: false});
+		}
 	}
 
 	render() {
+
 		if (this.state.redirect) {
-			return <Redirect push to="/Home" />;
+			return <Redirect push to={this.state.username + "/Home"}/>;
 		}
 
 		return (
@@ -80,7 +104,7 @@ class Login extends Component {
 							</label>
 						</div>
 						<div className="forgot-password">Forgot password?</div>
-						<input className="login-button" type="submit" value="Log In" />
+						<input className="login-button" type="submit" value="Log In" onClick={() => this.setState({submitted:true})} />
 					</form>
 					<div className="no-account">Don't have an account?<Link to="/Signup"><button className="signup-button">SIGN UP</button></Link></div>
 				</div>
