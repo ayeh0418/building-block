@@ -14,4 +14,5 @@
     display: inline-block;
     z-index: 1;
     top: -26px;
+    vertical-align: middle;
 }
