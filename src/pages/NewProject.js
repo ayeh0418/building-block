@@ -20,7 +20,9 @@ class NewProject extends Component {
 		this.state = {
 			dancerMenu: false,
 			addMenu: false,
-			showFormation: false
+			showFormation: false,
+			formationCount: 1,
+			formationIndex: 1
 		};
 
 		this.handleDancer = this.handleDancer.bind(this);
@@ -28,7 +30,7 @@ class NewProject extends Component {
 		this.addDancer = this.addDancer.bind(this);
 		this.toggleAdd = this.toggleAdd.bind(this);
 		this.handleFormation = this.handleFormation.bind(this);
-		//this.addSubmit = this.addSubmit.bind(this);
+		this.addSubmit = this.addSubmit.bind(this);
 	}
 
 	handleDancer(e){
@@ -61,14 +63,22 @@ class NewProject extends Component {
 			showFormation: !prevState.showFormation
 		}));
 	}
-	/*addSubmit(event, name){
+
+	addSubmit(event, name, id){
 		var nameRef = fire.database().ref().child('dancers');
 		nameRef.child(name).set({
 			id: id,
 			name: name
 		});
 	}
-	
+
+	countFormation = (childData) => {
+      this.setState({formationCount: childData});
+	}
+
+	currFormation = (childData) => {
+		this.setState({formationIndex: childData});
+	}
 
 	render() {
 		return (
@@ -87,7 +97,7 @@ class NewProject extends Component {
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
 				</div>
-				{ this.state.showFormation ? <Formation /> : null }
+				<Formation count={this.state.formationCount} counting={this.countFormation} curr={this.currFormation} showBox={this.state.showFormation}/>
 				<div className="bottom">
 					<div className= "Functions">
 						<img onClick={this.handleFormation} className="funcMenu" alt="Formations" src={formations} />

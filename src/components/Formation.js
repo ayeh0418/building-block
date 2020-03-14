@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './Formation.css';
 import fire from '../fire';
 
+var buttons = [];
+
 class Formation extends Component {
 	constructor(props, context) {
 		super(props, context);
@@ -13,6 +15,24 @@ class Formation extends Component {
 
 		this.display = this.display.bind(this);
 		this.addFormation = this.addFormation.bind(this);
+
+		var count = this.props.count;
+		
+		var ref = fire.database().ref('formations').orderByKey();
+		ref.once('value').then(snapshot => {
+			snapshot.forEach(function(childSnapshot) {
+				if (childSnapshot.key != "undefined") {
+					buttons.push(childSnapshot.key);
+				}
+			});
+
+			buttons.map(key => this.setState(prev => ({
+				formations: [
+					...prev.formations,
+					(<div><button id={key} className="formation-button" onClick={this.display}>{"Formation" + key}</button></div>)
+				]
+			})));
+		});
 	}
 
 	display(e) {
