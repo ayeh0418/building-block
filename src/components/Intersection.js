@@ -51,7 +51,7 @@ export default class Intersection extends Component {
 
 	render() {
 		return (
-			<div /*ref="hi"*/ className="intersection" id={this.props.x + "-" + this.props.y}>
+			<div className="intersection" id={this.props.x + "-" + this.props.y}>
 				<img onClick={this.addDot} src={cross}/>
 				<div onClick={this.removeDot} className="black" style={{visibility: this.state.showDot ? 'visible' : 'hidden' }}></div>
 			</div>

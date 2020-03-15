@@ -32,7 +32,10 @@ class Formation extends Component {
 					(<div><button id={key} className="formation-button" onClick={this.display}>{"Formation" + key}</button></div>)
 				]
 			})));
+			document.getElementsByTagName('button')[2].click();
 		});
+
+		
 	}
 
 	display(e) {
@@ -54,15 +57,13 @@ class Formation extends Component {
 						dot.style.visibility = "visible";
 					});
 				}
-				
 			});
-			
 		});
 	}
 
 	addFormation() {
-		var count = this.props.count;
-		this.props.counting(count + 1);
+		var count = this.state.formations.length + 1;
+		this.props.counting(count);
 		this.setState(previousState => ({
 			formations: [
 				...previousState.formations,

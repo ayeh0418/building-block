@@ -31,6 +31,7 @@ class NewProject extends Component {
 		this.toggleAdd = this.toggleAdd.bind(this);
 		this.handleFormation = this.handleFormation.bind(this);
 		this.addSubmit = this.addSubmit.bind(this);
+		this.showCurrFormation = this.showCurrFormation.bind(this);
 	}
 
 	handleDancer(e){
@@ -80,6 +81,11 @@ class NewProject extends Component {
 		this.setState({formationIndex: childData});
 	}
 
+	showCurrFormation() {
+		return <p className="formation-indicator">{"Formation" + this.state.formationIndex}</p>;
+		//alert(document.getElementsByTagName('button')[2].innerText);
+	}
+
 	render() {
 		return (
 			<div className="screen-home">
@@ -88,11 +94,12 @@ class NewProject extends Component {
 					<div className="navigation">
 						<Link to="/LoadProject"><div className="navButton">My Projects</div></Link>
 						<div className="navButton">Share</div>
-						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
+						<Link to="/" style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
 				</div>
+				{this.showCurrFormation()}
 				<Instruction />
-				<Grid />
+				<Grid currForm={this.state.formationIndex} />
 				<div className="overlays">
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
