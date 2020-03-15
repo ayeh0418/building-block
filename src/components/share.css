@@ -1,0 +1,36 @@
+﻿body
+{
+}
+
+.share-box {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 150px;
+    width: 200px;
+    background-color: #D7C0FC;
+    z-index: 3;
+    border-radius: 10px;
+}
+
+.share-title {
+    font-weight: 700;
+    color: #A281D8;
+    font-size: 20px;
+    margin: 0;
+    margin-left: -100px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.share-input {
+    width: 90%;
+    height: 30px;
+    margin: 0 auto;
+    left: 5%;
+    border-radius: 5px;
+    border: 5px solid white;
+}

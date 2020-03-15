@@ -12,6 +12,7 @@ import transitions from '../images/transitions.png';
 import dancers from '../images/dancers.png';
 import Names from '../components/Names.js';
 import AddMenu from '../components/addMenu.js';
+import Share from '../components/share.js';
 
 class NewProject extends Component {
 	constructor(props, context){
@@ -22,7 +23,8 @@ class NewProject extends Component {
 			addMenu: false,
 			showFormation: false,
 			formationCount: 1,
-			formationIndex: 1
+			formationIndex: 1,
+			share: false
 		};
 
 		this.handleDancer = this.handleDancer.bind(this);
@@ -32,6 +34,7 @@ class NewProject extends Component {
 		this.handleFormation = this.handleFormation.bind(this);
 		this.addSubmit = this.addSubmit.bind(this);
 		this.showCurrFormation = this.showCurrFormation.bind(this);
+		this.share = this.share.bind(this);
 	}
 
 	handleDancer(e){
@@ -85,6 +88,12 @@ class NewProject extends Component {
 		return <p className="formation-indicator">{"Formation" + this.state.formationIndex}</p>;
 	}
 
+	share() {
+		this.setState(prev => ({
+			share: !prev.share
+		}))
+	}
+
 	render() {
 		return (
 			<div className="screen-home">
@@ -92,7 +101,7 @@ class NewProject extends Component {
 					<Link to={"/" + this.props.user + "/Home"}><img className="logo-login" alt="Flyer" src={logo} /></Link>
 					<div className="navigation">
 						<Link to={"/" + this.props.user + "/LoadProject"}><div className="navButton">My Projects</div></Link>
-						<div className="navButton">Share</div>
+						<div onClick={this.share} className="navButton">Share</div>
 						<Link to="/" style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>	
 				</div>
@@ -104,6 +113,7 @@ class NewProject extends Component {
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
 				</div>
 				<Formation user={this.props.user} count={this.state.formationCount} counting={this.countFormation} curr={this.currFormation} showBox={this.state.showFormation}/>
+				{this.state.share ? <Share url={window.location.href} /> : null }
 				<div className="bottom">
 					<div className= "Functions">
 						<img onClick={this.handleFormation} className="funcMenu" alt="Formations" src={formations} />
