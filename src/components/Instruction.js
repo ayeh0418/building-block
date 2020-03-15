@@ -36,7 +36,6 @@ export default class Instruction extends Component {
 	}
 
 	addClick() {
-		var dotRef = fire.database().ref('clicks/');
 		var ref = fire.database().ref('clicks/');
 
 		ref.on("value", function(snapshot) {

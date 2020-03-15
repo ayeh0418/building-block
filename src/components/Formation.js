@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './Formation.css';
 import fire from '../fire';
 
@@ -15,13 +14,11 @@ class Formation extends Component {
 
 		this.display = this.display.bind(this);
 		this.addFormation = this.addFormation.bind(this);
-
-		var count = this.props.count;
 		
-		var ref = fire.database().ref('formations').orderByKey();
+		var ref = fire.database().ref('/userData/' + this.props.user + '/formations').orderByKey();
 		ref.once('value').then(snapshot => {
 			snapshot.forEach(function(childSnapshot) {
-				if (childSnapshot.key != "undefined") {
+				if (childSnapshot.key !== "undefined") {
 					buttons.push(childSnapshot.key);
 				}
 			});
@@ -48,10 +45,10 @@ class Formation extends Component {
 			allDots[i].style.visibility = 'hidden';
 		}
 
-		var ref = fire.database().ref('formations').orderByKey();
+		var ref = fire.database().ref('userData/' + this.props.user + '/formations').orderByKey();
 		ref.once('value').then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
-				if (childSnapshot.key == id) {
+				if (childSnapshot.key === id) {
 					childSnapshot.forEach(function(gcs) {
 						var dot = document.getElementById(gcs.val().x + "-" + gcs.val().y).children[1];
 						dot.style.visibility = "visible";

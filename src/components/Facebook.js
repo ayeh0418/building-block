@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import fire from '../fire';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 export default class Facebook extends Component {
 	state = {
@@ -85,7 +85,7 @@ export default class Facebook extends Component {
 			);
 		}
 
-		if(this.state.redirect == true){
+		if(this.state.redirect === true){
 				return <Redirect push to="/Home" />;
 		}
 		return (
