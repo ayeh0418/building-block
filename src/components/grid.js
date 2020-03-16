@@ -37,7 +37,7 @@ export default class grid extends Component {
 
 			for (let j = 0; j < this.state.columns; j++) {
 				ind += 1;
-				gridRow.push(<Intersection user={this.props.user} f={this.props.currForm} x={i} y={j} index={ind} id={ind} />);
+				gridRow.push(<Intersection pCount={this.props.pCount} user={this.props.user} f={this.props.currForm} x={i} y={j} index={ind} id={ind} />);
 			}
 			grid.push(<div className="grid-row">{gridRow}</div>);
 		}

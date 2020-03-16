@@ -12,17 +12,18 @@ class Formation extends Component {
 			formations: []
 		}
 
+		buttons = [];
+
 		this.display = this.display.bind(this);
 		this.addFormation = this.addFormation.bind(this);
 		
-		var ref = fire.database().ref('/userData/' + this.props.user + '/formations').orderByKey();
+		var ref = fire.database().ref('/userData/' + this.props.user + '/projects/' + this.props.pCount + '/formations').orderByKey();
 		ref.once('value').then(snapshot => {
 			snapshot.forEach(function(childSnapshot) {
 				if (childSnapshot.key !== "undefined") {
 					buttons.push(childSnapshot.key);
 				}
 			});
-
 			buttons.map(key => this.setState(prev => ({
 				formations: [
 					...prev.formations,
@@ -31,8 +32,6 @@ class Formation extends Component {
 			})));
 			document.getElementsByTagName('button')[2].click();
 		});
-
-		
 	}
 
 	display(e) {
@@ -45,7 +44,7 @@ class Formation extends Component {
 			allDots[i].style.visibility = 'hidden';
 		}
 
-		var ref = fire.database().ref('userData/' + this.props.user + '/formations').orderByKey();
+		var ref = fire.database().ref('userData/' + this.props.user + '/projects/' + this.props.pCount + '/formations').orderByKey();
 		ref.once('value').then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				if (childSnapshot.key === id) {

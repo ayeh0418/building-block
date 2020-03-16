@@ -28,7 +28,7 @@ export default class Intersection extends Component {
 		this.setState ({
 			showDot: true
 		});
-		var dotRef = fire.database().ref().child("/userData/" + this.props.user + "/formations/" + this.props.f);
+		var dotRef = fire.database().ref().child("/userData/" + this.props.user + "/projects/" + this.props.pCount + "/formations/" + this.props.f);
 		dotRef.child(this.props.index).set({
 			x: this.props.x,
 			y: this.props.y
@@ -45,7 +45,7 @@ export default class Intersection extends Component {
 				showDot: true
 			});
 		}
-		fire.database().ref("/userData/" + this.props.user + "/formations/" + this.props.f + "/" + this.props.index).remove();
+		fire.database().ref("/userData/" + this.props.user + "/projects/" + this.props.pCount + "/formations/" + this.props.f + "/" + this.props.index).remove();
 	}
 
 	render() {

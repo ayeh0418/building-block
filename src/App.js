@@ -39,7 +39,8 @@ export default class App extends Component {
  constructor(props) {
 		super(props);
 		this.state = {
-			username: ''
+			username: '',
+			projectCount: 1
 		};
 		this.setUser = this.setUser.bind(this);
 	}
@@ -70,6 +71,10 @@ export default class App extends Component {
 
 	}
 
+	countProject = (childData) => {
+		this.setState({projectCount: childData});
+	}
+
 	render(){
 	return (
 		<Router>
@@ -85,10 +90,13 @@ export default class App extends Component {
 						<Home user={this.state.username} />
 					</Route>
 					<Route exact path={"/" + this.state.username + "/LoadProject"}>
-						<LoadProject user={this.state.username} />
+						<LoadProject pCount={this.countProject} user={this.state.username} />
 					</Route>
-					<Route exact path={"/" + this.state.username + "/NewProject"}>
-						<NewProject user={this.state.username} />
+					<Route path={"/" + this.state.username + "/NewProject"}>
+						<NewProject  projCount={this.state.projectCount} user={this.state.username} />
+					</Route>
+					<Route path={"/" + this.state.username + "/Project"}>
+						<NewProject projCount={this.state.projectCount} user={this.state.username} />
 					</Route>
 				</Switch>
 			</div>

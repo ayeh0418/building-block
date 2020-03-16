@@ -35,6 +35,8 @@ class NewProject extends Component {
 		this.addSubmit = this.addSubmit.bind(this);
 		this.showCurrFormation = this.showCurrFormation.bind(this);
 		this.share = this.share.bind(this);
+
+		// alert(this.props.projCount);
 	}
 
 	handleDancer(e){
@@ -85,7 +87,7 @@ class NewProject extends Component {
 	}
 
 	showCurrFormation() {
-		return <p className="formation-indicator">{"Formation" + this.state.formationIndex}</p>;
+		return <p className="formation-indicator">{"Project" + this.props.projCount + "-Formation" + this.state.formationIndex}</p>;
 	}
 
 	share() {
@@ -107,12 +109,12 @@ class NewProject extends Component {
 				</div>
 				{this.showCurrFormation()}
 				<Instruction />
-				<Grid user={this.props.user} currForm={this.state.formationIndex} />
+				<Grid pCount={this.props.projCount} user={this.props.user} currForm={this.state.formationIndex} />
 				<div className="overlays">
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
 				</div>
-				<Formation user={this.props.user} count={this.state.formationCount} counting={this.countFormation} curr={this.currFormation} showBox={this.state.showFormation}/>
+				<Formation pCount={this.props.projCount} user={this.props.user} count={this.state.formationCount} counting={this.countFormation} curr={this.currFormation} showBox={this.state.showFormation}/>
 				{this.state.share ? <Share url={window.location.href} /> : null }
 				<div className="bottom">
 					<div className= "Functions">
