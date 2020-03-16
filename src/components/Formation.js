@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './Formation.css';
 import fire from '../fire';
+
+var buttons = [];
 
 class Formation extends Component {
 	constructor(props, context) {
@@ -13,6 +14,25 @@ class Formation extends Component {
 
 		this.display = this.display.bind(this);
 		this.addFormation = this.addFormation.bind(this);
+		
+		var ref = fire.database().ref('/userData/' + this.props.user + '/formations').orderByKey();
+		ref.once('value').then(snapshot => {
+			snapshot.forEach(function(childSnapshot) {
+				if (childSnapshot.key !== "undefined") {
+					buttons.push(childSnapshot.key);
+				}
+			});
+
+			buttons.map(key => this.setState(prev => ({
+				formations: [
+					...prev.formations,
+					(<div><button id={key} className="formation-button" onClick={this.display}>{"Formation" + key}</button></div>)
+				]
+			})));
+			document.getElementsByTagName('button')[2].click();
+		});
+
+		
 	}
 
 	display(e) {
@@ -25,24 +45,22 @@ class Formation extends Component {
 			allDots[i].style.visibility = 'hidden';
 		}
 
-		var ref = fire.database().ref('formations').orderByKey();
+		var ref = fire.database().ref('userData/' + this.props.user + '/formations').orderByKey();
 		ref.once('value').then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
-				if (childSnapshot.key == id) {
+				if (childSnapshot.key === id) {
 					childSnapshot.forEach(function(gcs) {
 						var dot = document.getElementById(gcs.val().x + "-" + gcs.val().y).children[1];
 						dot.style.visibility = "visible";
 					});
 				}
-				
 			});
-			
 		});
 	}
 
 	addFormation() {
-		var count = this.props.count;
-		this.props.counting(count + 1);
+		var count = this.state.formations.length + 1;
+		this.props.counting(count);
 		this.setState(previousState => ({
 			formations: [
 				...previousState.formations,

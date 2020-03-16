@@ -13,6 +13,7 @@ import dancers from '../images/dancers.png';
 import Names from '../components/Names.js';
 import AddMenu from '../components/addMenu.js';
 import ColorChanger from '../components/Color.js';
+import Share from '../components/share.js';
 
 class NewProject extends Component {
 	constructor(props, context){
@@ -22,9 +23,12 @@ class NewProject extends Component {
 			dancerMenu: false,
 			addMenu: false,
 			showFormation: false,
+
 			colorMenu: false,
 			formationCount: 1,
-			formationIndex: 1
+			formationIndex: 1,
+			share: false
+
 		};
 
 		this.handleDancer = this.handleDancer.bind(this);
@@ -33,7 +37,12 @@ class NewProject extends Component {
 		this.toggleAdd = this.toggleAdd.bind(this);
 		this.handleFormation = this.handleFormation.bind(this);
 		this.addSubmit = this.addSubmit.bind(this);
+
 		this.handleColor = this.handleColor.bind(this);
+
+		this.showCurrFormation = this.showCurrFormation.bind(this);
+		this.share = this.share.bind(this);
+
 	}
 
 	handleDancer(e){
@@ -67,6 +76,7 @@ class NewProject extends Component {
 		}));
 	}
 
+
 	countFormation = (childData) =>{
 		this.setState({formationCount: childData});
 	}
@@ -93,6 +103,16 @@ class NewProject extends Component {
 		}
 	}
 
+	showCurrFormation() {
+		return <p className="formation-indicator">{"Formation" + this.state.formationIndex}</p>;
+	}
+
+	share() {
+		this.setState(prev => ({
+			share: !prev.share
+		}));
+	}
+
 	render() {
 		return (
 			<div className="screen-home">
@@ -102,16 +122,18 @@ class NewProject extends Component {
 						<Link to={ "/" + localStorage.getItem("userState") + "/LoadProject"}><div className="navButton">My Projects</div></Link>
 						<div className="navButton">Share</div>
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
-					</div>	
+					</div>
 				</div>
+				{this.showCurrFormation()}
 				<Instruction />
-				<Grid />
+				<Grid user={this.props.user} currForm={this.state.formationIndex} />
 				<div className="overlays">
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
 					<ColorChanger visibility={this.state.colorMenu} handleColor={this.handleColor}/>
 				</div>
-				<Formation count={this.state.formationCount} counting={this.countFormation} curr={this.currFormation} showBox={this.state.showFormation} />
+				<Formation user={this.props.user} count={this.state.formationCount} counting={this.countFormation} curr={this.currFormation} showBox={this.state.showFormation}/>
+				{this.state.share ? <Share url={window.location.href} /> : null }
 				<div className="bottom">
 					<div className= "Functions">
 						<img onClick={this.handleFormation} className="funcMenu" alt="Formations" src={formations} />
@@ -120,7 +142,6 @@ class NewProject extends Component {
 						<input type="image" className="funcMenu" alt="Dancers" src={dancers} onMouseDown={this.handleDancer}/>
 					</div>
 				</div>
-				
 			</div>
 		);
 	}

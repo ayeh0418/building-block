@@ -82,13 +82,13 @@ export default class App extends Component {
 						<Login setUser={this.setUser} />
 					</Route>
 					<Route exact path={"/" + this.state.username + "/Home"}>
-						<Home />
+						<Home user={this.state.username} />
 					</Route>
 					<Route exact path={"/" + this.state.username + "/LoadProject"}>
-						<LoadProject />
+						<LoadProject user={this.state.username} />
 					</Route>
 					<Route exact path={"/" + this.state.username + "/NewProject"}>
-						<NewProject />
+						<NewProject user={this.state.username} />
 					</Route>
 				</Switch>
 			</div>

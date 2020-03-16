@@ -18,7 +18,6 @@ export default class Intersection extends Component {
 		this.addDot = this.addDot.bind(this);	
 		this.removeDot = this.removeDot.bind(this);	
 		this.show = this.show.bind(this);
-		// this.myRef = React.createRef();
 	}
 
 	show() {
@@ -31,7 +30,7 @@ export default class Intersection extends Component {
 		this.setState ({
 			showDot: true
 		});
-		var dotRef = fire.database().ref().child("formations/" + this.props.f);
+		var dotRef = fire.database().ref().child("/userData/" + this.props.user + "/formations/" + this.props.f);
 		dotRef.child(this.props.index).set({
 			x: this.props.x,
 			y: this.props.y
@@ -70,11 +69,12 @@ export default class Intersection extends Component {
 				this.setState({dotColor: hue});
 			}
 		}
+		fire.database().ref("/userData/" + this.props.user + "/formations/" + this.props.f + "/" + this.props.index).remove();
 	}
 
 	render() {
 		return (
-			<div /*ref="hi"*/ className="intersection" id={this.props.x + "-" + this.props.y}>
+			<div className="intersection" id={this.props.x + "-" + this.props.y}>
 				<img onClick={this.addDot} src={cross}/>
 				<div onClick={this.removeDot} className={this.state.dotColor} style={{visibility: this.state.showDot ? 'visible' : 'hidden' }}>{this.state.dotNum}</div>
 			</div>

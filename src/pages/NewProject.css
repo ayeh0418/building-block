@@ -2,7 +2,7 @@
 {
 }
 .header-newProj {
-    height: 55px;
+    height: 25px;
     display: flex;
     justify-content: initial;
     margin: 20px;
@@ -38,4 +38,10 @@
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.formation-indicator {
+    color: #A281D8;
+    font-weight: 700;
+    margin-bottom: 10px;
 }

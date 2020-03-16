@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import "./grid.css";
-import dotPic from '../images/dot.png';
 import Intersection from './Intersection.js';
-
-var idx = 0;
-var onDot = false;
-var formation = 1;
 
 export default class grid extends Component {  
 	constructor(props) {
@@ -42,7 +37,7 @@ export default class grid extends Component {
 
 			for (let j = 0; j < this.state.columns; j++) {
 				ind += 1;
-				gridRow.push(<Intersection f={this.props.currForm} x={i} y={j} index={ind} id={ind} />);
+				gridRow.push(<Intersection user={this.props.user} f={this.props.currForm} x={i} y={j} index={ind} id={ind} />);
 			}
 			grid.push(<div className="grid-row">{gridRow}</div>);
 		}

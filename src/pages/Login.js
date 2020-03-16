@@ -6,7 +6,6 @@ import logo from '../images/logo.png';
 import bar from '../images/bar.png';
 import corner from '../images/corner.png';
 import Facebook from '../components/Facebook.js';
-import ReactGA from 'react-ga';
 
 class Login extends Component {
 
@@ -44,7 +43,7 @@ class Login extends Component {
 		var that = this;
 		ref.on("value", function(snapshot) {
 			if(snapshot.exists()){
-				if (snapshot.val().password == pw) {
+				if (snapshot.val().password === pw) {
 					redirect = true;	
 					that.setState({redirect: redirect}, () => {that.handleValidCheck()});
 				}

@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import fire from '../fire';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import logo from '../images/logo.png';
-import Facebook from '../components/Facebook.js';
-
 
 class Home extends Component {
 	render() {
