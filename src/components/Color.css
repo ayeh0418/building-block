@@ -25,7 +25,7 @@
     transition: transform .3s cubic-bezier(0, -.52, 0, 1);
 }
 
-.colorContainer .Red {
+.colorContainer .Red-select {
     position: relative;
     height: 20px;
     width: 20px;
@@ -37,7 +37,7 @@
     top: auto;
     margin: 3px;
 }
-.colorContainer .Orange {
+.colorContainer .Orange-select {
     position: relative;
     height: 20px;
     width: 20px;
@@ -49,7 +49,7 @@
     top: auto;
     margin: 3px;
 }
-.colorContainer .Green {
+.colorContainer .Green-select {
     position: relative;
     display: inline-block;
     height: 20px;
@@ -60,7 +60,7 @@
     top: auto;
     margin: 3px;
 }
-.colorContainer .Teal {
+.colorContainer .Teal-select {
     position: relative;
     display: inline-block;
     height: 20px;
@@ -72,7 +72,7 @@
     top: auto;
     margin: 3px;
 }
-.colorContainer .Blue {
+.colorContainer .Blue-select {
     position: relative;
     display: inline-block;
     height: 20px;
@@ -84,7 +84,7 @@
     top: auto;
     margin: 3px;
 }
-.colorContainer .Purple {
+.colorContainer .Purple-select {
     position: relative;
     display: inline-block;
     height: 20px;
@@ -96,7 +96,7 @@
     top: auto;
     margin: 3px;
 }
-.colorContainer .Pink {
+.colorContainer .Pink-select {
     position: relative;
     display: inline-block;
     height: 20px;

@@ -27,9 +27,11 @@ export default class Intersection extends Component {
 	}
 
 	addDot() {
+		if (!this.state.showDot) {
 		this.setState ({
 			showDot: true
 		});
+		}
 		var dotRef = fire.database().ref().child("/userData/" + this.props.user + "/projects/" + this.props.pCount + "/formations/" + this.props.f);
 		dotRef.child(this.props.index).set({
 			x: this.props.x,

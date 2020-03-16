@@ -43,6 +43,36 @@ class Formation extends Component {
 			allDots[i].style.visibility = 'hidden';
 		}
 
+		allDots = document.getElementsByClassName('Red');
+		for (var i = 0; i < allDots.length; i ++) {
+			allDots[i].style.visibility = 'hidden';
+		}
+
+		allDots = document.getElementsByClassName('Orange');
+		for (var i = 0; i < allDots.length; i ++) {
+			allDots[i].style.visibility = 'hidden';
+		}
+
+		allDots = document.getElementsByClassName('Green');
+		for (var i = 0; i < allDots.length; i ++) {
+			allDots[i].style.visibility = 'hidden';
+		}
+
+		allDots = document.getElementsByClassName('Teal');
+		for (var i = 0; i < allDots.length; i ++) {
+			allDots[i].style.visibility = 'hidden';
+		}
+
+		allDots = document.getElementsByClassName('Blue');
+		for (var i = 0; i < allDots.length; i ++) {
+			allDots[i].style.visibility = 'hidden';
+		}
+
+		allDots = document.getElementsByClassName('Pink');
+		for (var i = 0; i < allDots.length; i ++) {
+			allDots[i].style.visibility = 'hidden';
+		}
+
 		var ref = fire.database().ref('userData/' + this.props.user + '/projects/' + this.props.pCount + '/formations').orderByKey();
 		ref.once('value').then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
