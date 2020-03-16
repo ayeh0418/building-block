@@ -6,6 +6,7 @@
     display: inline-block;
     position: absolute;
     z-index: 2;
-    left: 50%;
+    right: 4vw;
+    top: 8vh;
     margin-left: -70px;
 }

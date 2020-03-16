@@ -1,16 +1,23 @@
-﻿.formation {
+﻿#formation {
     position: absolute;
     background-color: #D7C0FC;
-    height: 60%;
-    width: 300px;
-    z-index: 3;
-    margin: auto;
-    top: 0;
+    height: 75vh;
+    width: 40vw;
+    top: 13vh;
     left: 0;
-    bottom: 0;
-    right: 0;
+    z-index: 3;
+    transition: transform .3s cubic-bezier(0, .52, 0, 1);
 }
 
+#formation.show{
+    transform: translate3d(0vw, 0, 0);
+	overflow: hidden;
+}
+
+#formation.hide{
+    transform: translate3d(-100vw, 0, 0);
+    transition: transform .3s cubic-bezier(0, -.52, 0, 1);
+}
 .formation-title {
     color: #A281D8;
     font-weight: 700;

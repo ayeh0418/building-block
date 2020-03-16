@@ -12,6 +12,7 @@ import transitions from '../images/transitions.png';
 import dancers from '../images/dancers.png';
 import Names from '../components/Names.js';
 import AddMenu from '../components/addMenu.js';
+import ColorChanger from '../components/Color.js';
 import Share from '../components/share.js';
 
 class NewProject extends Component {
@@ -22,9 +23,12 @@ class NewProject extends Component {
 			dancerMenu: false,
 			addMenu: false,
 			showFormation: false,
+
+			colorMenu: false,
 			formationCount: 1,
 			formationIndex: 1,
 			share: false
+
 		};
 
 		this.handleDancer = this.handleDancer.bind(this);
@@ -33,10 +37,12 @@ class NewProject extends Component {
 		this.toggleAdd = this.toggleAdd.bind(this);
 		this.handleFormation = this.handleFormation.bind(this);
 		this.addSubmit = this.addSubmit.bind(this);
+
+		this.handleColor = this.handleColor.bind(this);
+
 		this.showCurrFormation = this.showCurrFormation.bind(this);
 		this.share = this.share.bind(this);
 
-		// alert(this.props.projCount);
 	}
 
 	handleDancer(e){
@@ -70,6 +76,15 @@ class NewProject extends Component {
 		}));
 	}
 
+
+	countFormation = (childData) =>{
+		this.setState({formationCount: childData});
+	}
+
+	currFormation = (childData) => {
+		this.setState({formationIndex: childData});
+	}
+
 	addSubmit(event, name, id){
 		var nameRef = fire.database().ref().child('dancers');
 		nameRef.child(name).set({
@@ -77,13 +92,15 @@ class NewProject extends Component {
 			name: name
 		});
 	}
-
-	countFormation = (childData) => {
-      this.setState({formationCount: childData});
-	}
-
-	currFormation = (childData) => {
-		this.setState({formationIndex: childData});
+	
+	handleColor(){
+		var colorToggle = this.state.colorMenu;
+		if (colorToggle == 1){
+			this.setState({colorMenu: 0}, () =>{localStorage.setItem('toggleColor', this.state.colorMenu)});
+		}
+		else if (colorToggle == 0){
+			this.setState({colorMenu: 1}, () =>{localStorage.setItem('toggleColor', this.state.colorMenu)});
+		}
 	}
 
 	showCurrFormation() {
@@ -93,19 +110,19 @@ class NewProject extends Component {
 	share() {
 		this.setState(prev => ({
 			share: !prev.share
-		}))
+		}));
 	}
 
 	render() {
 		return (
 			<div className="screen-home">
 				<div className="header-newProj">
-					<Link to={"/" + this.props.user + "/Home"}><img className="logo-login" alt="Flyer" src={logo} /></Link>
+					<Link to={ "/" + localStorage.getItem("userState") + "/Home"}><img className="logo-login" alt="Flyer" src={logo} /></Link>
 					<div className="navigation">
-						<Link to={"/" + this.props.user + "/LoadProject"}><div className="navButton">My Projects</div></Link>
-						<div onClick={this.share} className="navButton">Share</div>
-						<Link to="/" style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
-					</div>	
+						<Link to={ "/" + localStorage.getItem("userState") + "/LoadProject"}><div className="navButton">My Projects</div></Link>
+						<div className="navButton">Share</div>
+						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
+					</div>
 				</div>
 				{this.showCurrFormation()}
 				<Instruction />
@@ -113,13 +130,14 @@ class NewProject extends Component {
 				<div className="overlays">
 					<Names handleMouseDown={this.handleMouseDown} menuVisibility={this.state.dancerMenu} addDancer={this.addDancer} addMenu={this.state.addMenu}/>
 					<AddMenu handleMouseDown={this.addDancer} menuVisibility={this.state.addMenu} addSubmit={this.addSubmit} />
+					<ColorChanger visibility={this.state.colorMenu} handleColor={this.handleColor}/>
 				</div>
 				<Formation pCount={this.props.projCount} user={this.props.user} count={this.state.formationCount} counting={this.countFormation} curr={this.currFormation} showBox={this.state.showFormation}/>
 				{this.state.share ? <Share url={window.location.href} /> : null }
 				<div className="bottom">
 					<div className= "Functions">
 						<img onClick={this.handleFormation} className="funcMenu" alt="Formations" src={formations} />
-						<img className="funcMenu" alt="Color" src={dancerColor} />
+						<input type="image" onMouseDown={this.handleColor} className="funcMenu" alt="Color" src={dancerColor} />
 						<img className="funcMenu" alt="Transition" src={transitions} />
 						<input type="image" className="funcMenu" alt="Dancers" src={dancers} onMouseDown={this.handleDancer}/>
 					</div>

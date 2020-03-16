@@ -10,7 +10,9 @@ export default class Intersection extends Component {
 		super(prop, context);
 		
 		this.state = {
-			showDot: false
+			showDot: false,
+			dotNum: '',
+			dotColor: 'Purple'
 		};
 
 		this.addDot = this.addDot.bind(this);	
@@ -36,14 +38,36 @@ export default class Intersection extends Component {
 	}
 
 	removeDot() {
-		if (this.state.showDot) {
-			this.setState ({
-				showDot: false
-			});
-		} else {
-			this.setState ({
-				showDot: true
-			});
+		var label = localStorage.getItem("toggleLabel");
+		var number = localStorage.getItem("labelNumber");
+		var colorToggle = localStorage.getItem('toggleColor');
+		var hue = localStorage.getItem('color');
+		console.log(colorToggle);
+		console.log(hue);
+		if (label != 1 && colorToggle != 1){
+			if (this.state.showDot) {
+				this.setState ({
+					showDot: false
+				});
+			} else {
+				this.setState ({
+					showDot: true
+				});
+			}
+			fire.database().ref("formations/" + this.props.f + "/" + this.props.index).remove();
+			if(this.state.dotNum != '' || this.state.dotColor != 'Purple'){
+					this.setState({dotNum: '', dotColor: 'Purple'});
+			}
+		}
+		else{
+			if(label == 1){
+			this.setState({dotNum: number});
+			localStorage.setItem('toggleLabel', 0);
+			localStorage.setItem('labelNumber', '');
+			}
+			if(colorToggle==1) {
+				this.setState({dotColor: hue});
+			}
 		}
 		fire.database().ref("/userData/" + this.props.user + "/projects/" + this.props.pCount + "/formations/" + this.props.f + "/" + this.props.index).remove();
 	}
@@ -52,7 +76,7 @@ export default class Intersection extends Component {
 		return (
 			<div className="intersection" id={this.props.x + "-" + this.props.y}>
 				<img onClick={this.addDot} src={cross}/>
-				<div onClick={this.removeDot} className="black" style={{visibility: this.state.showDot ? 'visible' : 'hidden' }}></div>
+				<div onClick={this.removeDot} className={this.state.dotColor} style={{visibility: this.state.showDot ? 'visible' : 'hidden' }}>{this.state.dotNum}</div>
 			</div>
 		);
 	}

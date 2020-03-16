@@ -29,12 +29,10 @@ constructor(props) {
 
 	render() {
     var visibility = "hide";
-    console.log(visibility);
     //document.getElementById('addMenu').innerHTML = "Add Dancers";
  
     if (this.props.menuVisibility) {
       visibility = "show";
-      console.log(visibility);
     }
 
     if(this.props.addMenu){

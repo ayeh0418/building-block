@@ -69,8 +69,12 @@ class Formation extends Component {
 	}
 
 	render() {
+	var visibility = "hide";
+	if(this.props.showBox){
+		visibility = "show";
+	}
 		return (
-			<div id="formation" className="formation" style={{visibility: this.props.showBox ? 'visible' : 'hidden' }}>
+			<div id="formation" className={visibility}>
 				<p className="formation-title">Formation</p>
 				{this.state.formations.map(formation => formation)}
 				<div>
