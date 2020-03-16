@@ -120,7 +120,7 @@ class NewProject extends Component {
 					<Link to={ "/" + localStorage.getItem("userState") + "/Home"}><img className="logo-login" alt="Flyer" src={logo} /></Link>
 					<div className="navigation">
 						<Link to={ "/" + localStorage.getItem("userState") + "/LoadProject"}><div className="navButton">My Projects</div></Link>
-						<div className="navButton">Share</div>
+						<div className="navButton" onClick={this.share}>Share</div>
 						<Link to="/"  style={{ textDecoration: 'none', color: 'black'}}><div className="navButton">Sign Out</div></Link>
 					</div>
 				</div>

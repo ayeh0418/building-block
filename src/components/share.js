@@ -18,7 +18,7 @@ class Share extends Component {
 			<div className="share-box">
 				<p className="share-title">Share</p>
 				<input className="share-input" type="text" placeholder={this.props.url} />
-				<button id="copy-button" className="formation-add" onClick={this.copy}>Copy Link</button>
+				<button id="copy-button" className="copy-button" onClick={this.copy}>Copy Link</button>
 			</div>
 		);
 	}

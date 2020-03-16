@@ -34,3 +34,15 @@
     border-radius: 5px;
     border: 5px solid white;
 }
+
+.copy-button {
+    border: none;
+    background-color: white;
+    color: #A281D8;
+    width: 140px;
+    height: 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 20px;
+}
