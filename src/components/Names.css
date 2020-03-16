@@ -3,8 +3,8 @@
 	max-width: 40vw;
 	height: 75vh;
 	background-color: #D7C0FC;
-	position: fixed;
-	top: 12.5vh;
+	position: absolute;
+	top: 13vh;
 	left: 0;
 	transition: transform .3s cubic-bezier(0, .52, 0, 1);
 	overflow: scroll;

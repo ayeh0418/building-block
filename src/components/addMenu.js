@@ -42,11 +42,9 @@ export default class addMenu extends Component {
 	}
 	render() {
     var visibility = "hide";
-    console.log(visibility)
  
     if (this.props.menuVisibility) {
       visibility = "show";
-      console.log(visibility);
     }
  
     return (

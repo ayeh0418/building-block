@@ -1,90 +1,112 @@
-﻿.intersection {
-    display: inline-block;
-    height: 24px;
-    width: 24px;
+﻿body
+{
 }
 
-.Red {
+#colorMenu {
+    position: absolute;
+    background-color: white;
+    height: 75px;
+    width: 50%;
+    left: 25%;
+    top: 70vh;
+    z-index: 3;
+    transition: transform .3s cubic-bezier(0, .52, 0, 1);
+    border-radius: 10px;
+    border: 1px solid #A281D8;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+#colorMenu.show {
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+}
+
+#colorMenu.hide {
+    transform: translate3d(-100vw, 0, 0);
+    transition: transform .3s cubic-bezier(0, -.52, 0, 1);
+}
+
+.colorContainer .Red {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background: #FF9993;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 1;
+    vertical-align: middle;
+    top: auto;
+    margin: 3px;
+}
+.colorContainer .Orange {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background: #FFDA93;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 1;
+    vertical-align: middle;
+    top: auto;
+    margin: 3px;
+}
+.colorContainer .Green {
     position: relative;
     display: inline-block;
     height: 20px;
     width: 20px;
-    background-color: #FF9993;
+    background: #C1FF90;
     border-radius: 50%;
-    display: inline-block;
-    z-index: 1;
-    top: -26px;
     vertical-align: middle;
+    top: auto;
+    margin: 3px;
 }
-.Orange {
+.colorContainer .Teal {
     position: relative;
     display: inline-block;
     height: 20px;
     width: 20px;
-    background-color: #FFDA93;
+    background: #90FFF8;
     border-radius: 50%;
-    display: inline-block;
     z-index: 1;
-    top: -26px;
     vertical-align: middle;
+    top: auto;
+    margin: 3px;
 }
-.Green {
+.colorContainer .Blue {
     position: relative;
     display: inline-block;
     height: 20px;
     width: 20px;
-    background-color: #C1FF90;
+    background: #90D1FF;
     border-radius: 50%;
-    display: inline-block;
     z-index: 1;
-    top: -26px;
     vertical-align: middle;
+    top: auto;
+    margin: 3px;
 }
-.Teal {
+.colorContainer .Purple {
     position: relative;
     display: inline-block;
     height: 20px;
     width: 20px;
-    background-color: #90FFF8;
+    background: #A281D8;
     border-radius: 50%;
-    display: inline-block;
     z-index: 1;
-    top: -26px;
     vertical-align: middle;
+    top: auto;
+    margin: 3px;
 }
-.Blue {
+.colorContainer .Pink {
     position: relative;
     display: inline-block;
     height: 20px;
     width: 20px;
-    background-color: #90D1FF;
+    background: #F090FF;
     border-radius: 50%;
     display: inline-block;
     z-index: 1;
-    top: -26px;
     vertical-align: middle;
+    top: auto;
+    margin: 3px;
 }
-.Purple {
-    position: relative;
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    background-color: #A281D8;
-    border-radius: 50%;
-    display: inline-block;
-    z-index: 1;
-    top: -26px;
-    vertical-align: middle;
-}
-.Pink {
-    position: relative;
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    background-color: #F090FF;
-    border-radius: 50%;
-    display: inline-block;
-    z-index: 1;
-    top: -26px;
-    vertical-align: middle;
-}
+

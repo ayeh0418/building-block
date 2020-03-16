@@ -11,7 +11,8 @@ export default class Intersection extends Component {
 		
 		this.state = {
 			showDot: false,
-			dotNum: ''
+			dotNum: '',
+			dotColor: 'Purple'
 		};
 
 		this.addDot = this.addDot.bind(this);	
@@ -40,7 +41,11 @@ export default class Intersection extends Component {
 	removeDot() {
 		var label = localStorage.getItem("toggleLabel");
 		var number = localStorage.getItem("labelNumber");
-		if (label != 1){
+		var colorToggle = localStorage.getItem('toggleColor');
+		var hue = localStorage.getItem('color');
+		console.log(colorToggle);
+		console.log(hue);
+		if (label != 1 && colorToggle != 1){
 			if (this.state.showDot) {
 				this.setState ({
 					showDot: false
@@ -51,14 +56,19 @@ export default class Intersection extends Component {
 				});
 			}
 			fire.database().ref("formations/" + this.props.f + "/" + this.props.index).remove();
-			if(this.state.dotNum != ''){
-					this.setState({dotNum: ''});
+			if(this.state.dotNum != '' || this.state.dotColor != 'Purple'){
+					this.setState({dotNum: '', dotColor: 'Purple'});
 			}
 		}
 		else{
+			if(label == 1){
 			this.setState({dotNum: number});
 			localStorage.setItem('toggleLabel', 0);
 			localStorage.setItem('labelNumber', '');
+			}
+			if(colorToggle==1) {
+				this.setState({dotColor: hue});
+			}
 		}
 	}
 
@@ -66,7 +76,7 @@ export default class Intersection extends Component {
 		return (
 			<div /*ref="hi"*/ className="intersection" id={this.props.x + "-" + this.props.y}>
 				<img onClick={this.addDot} src={cross}/>
-				<div onClick={this.removeDot} className="black" style={{visibility: this.state.showDot ? 'visible' : 'hidden' }}>{this.state.dotNum}</div>
+				<div onClick={this.removeDot} className={this.state.dotColor} style={{visibility: this.state.showDot ? 'visible' : 'hidden' }}>{this.state.dotNum}</div>
 			</div>
 		);
 	}
