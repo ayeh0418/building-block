@@ -38,8 +38,7 @@ class Formation extends Component {
 		var id = e.target.id;
 		this.props.curr(id);
 
-		var allDots = document.getElementsByClassName('black');
-
+		var allDots = document.getElementsByClassName('Purple');
 		for (var i = 0; i < allDots.length; i ++) {
 			allDots[i].style.visibility = 'hidden';
 		}
